@@ -13,5 +13,13 @@ namespace GeoGames
         {
             InitializeComponent();
         }
+
+		private async void Tracker_OnClicked(object sender, EventArgs e) {  
+			await Navigation.PushAsync(new TrackerPage());  
+        }  
+
+		private async void Fugitive_OnClicked(object sender, EventArgs e) {  
+			await Navigation.PushAsync(new FugitivePage());  
+        }  
     }
 }
