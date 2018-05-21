@@ -1,6 +1,52 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="GeoGames.FugitivePage">
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="GeoGames.FugitivePage" Title="Fugitive">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="LabelStyle" TargetType="Label">
+                <Setter Property="TextColor" Value="Red"/>
+                <Setter Property="FontSize" Value="30"/>
+                <Setter Property="HorizontalOptions" Value="Center" />
+            </Style>
+            <Style x:Key="TextStyle" TargetType="Label">
+                <Setter Property="TextColor" Value="Red"/>
+                <Setter Property="FontSize" Value="20"/>
+                <Setter Property="HorizontalOptions" Value="Center" />
+            </Style>
+             <Style x:Key="TitleStyle" TargetType="Label">
+                <Setter Property="TextColor" Value="Red"/>
+                <Setter Property="FontSize" Value="40"/>
+                <Setter Property="FontAttributes" Value="Bold" />
+                <Setter Property="HorizontalOptions" Value="Center" />
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
     <ContentPage.Content>
-        <Label Text="Fugitive page" />
+        <RelativeLayout VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+            <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" Spacing="30">
+             
+                <Label Text="Fugitive"  Style="{StaticResource TitleStyle}" />
+                <Label Text="You are being tracked"  Style="{StaticResource LabelStyle}"/>
+                <Label Text="Distance of tracker to you"  Style="{StaticResource TextStyle}"/>
+                <Label Text="XX m"  x:Name="distance" Style="{StaticResource LabelStyle}"/>
+                <Label Text="Tracker will reach you in approx"  Style="{StaticResource TextStyle}"/>
+
+                <Label Text="YY s" x:Name="time" Style="{StaticResource LabelStyle}"/>
+               
+                <Button Text="Surrender" HorizontalOptions="Center" VerticalOptions="End" />
+         
+            </StackLayout>
+            <StackLayout RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent,
+                             Property=Height,
+                             Factor=1,
+                             Constant=-20}"
+                         RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent,
+                             Property=Width,
+                             Factor=0,
+                             Constant=0}">
+                <Label Text="Debug" TextColor="Gray" x:Name="debug" />
+            </StackLayout>
+       </RelativeLayout>
     </ContentPage.Content>
+
+
 </ContentPage>

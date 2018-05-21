@@ -6,6 +6,10 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using Android.OS;
+using Plugin.CurrentActivity;
+using Plugin.Geolocator.Abstractions;
+using System.Threading.Tasks;
+using Plugin.Geolocator;
 
 namespace GeoGames.Droid
 {
@@ -21,7 +25,18 @@ namespace GeoGames.Droid
 
             global::Xamarin.Forms.Forms.Init(this, bundle);
             LoadApplication(new App());
+
+			CrossCurrentActivity.Current.Activity = this;
         }
+
+		public override void OnRequestPermissionsResult(int requestCode, string[] permissions, Android.Content.PM.Permission[] grantResults)
+        {
+            Plugin.Permissions.PermissionsImplementation.Current.OnRequestPermissionsResult(requestCode, permissions, grantResults);
+            base.OnRequestPermissionsResult(requestCode, permissions, grantResults);
+        }
+
+
+
     }
 }
 
