@@ -15,7 +15,7 @@ namespace GeoGames
         }
 
 		private async void Tracker_OnClicked(object sender, EventArgs e) {  
-			await Navigation.PushAsync(new TrackerPage());  
+			await Navigation.PushAsync(new TrackerSetup());  
         }  
 
 		private async void Fugitive_OnClicked(object sender, EventArgs e) {  
