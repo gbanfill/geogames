@@ -10,6 +10,7 @@ using Plugin.CurrentActivity;
 using Plugin.Geolocator.Abstractions;
 using System.Threading.Tasks;
 using Plugin.Geolocator;
+using Mindscape.Raygun4Net;
 
 namespace GeoGames.Droid
 {
@@ -22,6 +23,9 @@ namespace GeoGames.Droid
             ToolbarResource = Resource.Layout.Toolbar;
 
             base.OnCreate(bundle);
+
+			RaygunClient.Attach("hE22yVqWFboJm4JvT0c90Q==");
+
 
             global::Xamarin.Forms.Forms.Init(this, bundle);
 			Xamarin.FormsMaps.Init(this, bundle);

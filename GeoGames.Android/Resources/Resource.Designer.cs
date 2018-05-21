@@ -26,6 +26,7 @@ namespace GeoGames.Droid
 		
 		public static void UpdateIdValues()
 		{
+			global::Mindscape.Raygun4Net.Xamarin.Android.Resource.String.library_name = global::GeoGames.Droid.Resource.String.library_name;
 			global::Xamarin.Forms.Platform.Android.Resource.Attribute.actionBarSize = global::GeoGames.Droid.Resource.Attribute.actionBarSize;
 		}
 		
@@ -4306,6 +4307,9 @@ namespace GeoGames.Droid
 			
 			// aapt resource value: 0x7f09000f
 			public const int common_signin_button_text_long = 2131296271;
+			
+			// aapt resource value: 0x7f09004d
+			public const int library_name = 2131296333;
 			
 			// aapt resource value: 0x7f090011
 			public const int mr_button_content_description = 2131296273;

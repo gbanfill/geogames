@@ -29,6 +29,11 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <AndroidLinkMode>None</AndroidLinkMode>
+    <AndroidKeyStore>True</AndroidKeyStore>
+    <AndroidSigningKeyStore>/Users/georgebanfill/Projects/geogames/GeoGames.Android/GeoGames.keystore</AndroidSigningKeyStore>
+    <AndroidSigningStorePass>Password1</AndroidSigningStorePass>
+    <AndroidSigningKeyAlias>GeoGames</AndroidSigningKeyAlias>
+    <AndroidSigningKeyPass>Password1</AndroidSigningKeyPass>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -59,6 +64,9 @@
     </PackageReference>
     <PackageReference Include="Xamarin.Forms.Maps">
       <Version>3.0.0.446417</Version>
+    </PackageReference>
+    <PackageReference Include="Mindscape.Raygun4Net">
+      <Version>5.5.4</Version>
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
