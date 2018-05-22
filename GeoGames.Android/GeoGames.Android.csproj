@@ -30,7 +30,7 @@
     <WarningLevel>4</WarningLevel>
     <AndroidLinkMode>None</AndroidLinkMode>
     <AndroidKeyStore>True</AndroidKeyStore>
-    <AndroidSigningKeyStore>/Users/georgebanfill/Projects/geogames/GeoGames.Android/GeoGames.keystore</AndroidSigningKeyStore>
+    <AndroidSigningKeyStore>GeoGames.keystore</AndroidSigningKeyStore>
     <AndroidSigningStorePass>Password1</AndroidSigningStorePass>
     <AndroidSigningKeyAlias>GeoGames</AndroidSigningKeyAlias>
     <AndroidSigningKeyPass>Password1</AndroidSigningKeyPass>
