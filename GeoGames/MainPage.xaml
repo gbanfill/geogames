@@ -1,17 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:local="clr-namespace:GeoGames" x:Class="GeoGames.MainPage">
-    <RelativeLayout VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+<ContentPage  xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:local="clr-namespace:GeoGames" x:Class="GeoGames.MainPage">
+    <RelativeLayout  VerticalOptions="Fill" HorizontalOptions="Fill">
         
-        <StackLayout 
+        <StackLayout  VerticalOptions="Center"
             RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent,
                              Property=Height,
-                             Factor=0.4,
+                             Factor=0,
                              Constant=-20}"
+            RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent,
+                             Property=Height,
+                             Factor=1,
+                             Constant=0}"
             RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent,
                              Property=Width,
-                             Factor=0.1,
+                             Factor=0,
                              Constant=0}"
-            VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+           RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,
+                             Property=Width,
+                             Factor=1,
+                             Constant=0}"
+            >
             <!-- Place new controls here -->
 
             <Label Text="Welcome to GeoTag!" HorizontalOptions="Center" VerticalOptions="Center" />
@@ -20,15 +28,20 @@
             <Button Text="Tracker" HorizontalOptions="Center" VerticalOptions="Center" Clicked="Tracker_OnClicked"/>
             <Button Text="Fugitive" HorizontalOptions="Center" VerticalOptions="Center" Clicked="Fugitive_OnClicked"/>
         </StackLayout>
-         <StackLayout RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent,
+         <StackLayout  RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent,
                              Property=Height,
                              Factor=1,
                              Constant=-20}"
-                         RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent,
+                      RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent,
                              Property=Width,
-                             Factor=0.4,
-                             Constant=0}">
-                <Label Text="0.0.0.0" TextColor="Gray" x:Name="version" />
+                             Factor=0,
+                             Constant=0}"
+                      RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,
+                             Property=Width,
+                             Factor=1,
+                             Constant=0}"
+                         >
+                <Label Text="0.0.0.0" TextColor="Gray" x:Name="version" XAlign="Center" />
             </StackLayout>
     </RelativeLayout>
 </ContentPage>

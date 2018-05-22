@@ -21,8 +21,25 @@
         </ResourceDictionary>
     </ContentPage.Resources>
     <ContentPage.Content>
-        <RelativeLayout VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
-            <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" Spacing="30">
+        <RelativeLayout  VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+            <StackLayout   
+                        RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent,
+                             Property=Height,
+                             Factor=0,
+                             Constant=0}"
+                         RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent,
+                             Property=Height,
+                             Factor=1,
+                             Constant=0}"
+                         RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent,
+                             Property=Width,
+                             Factor=0,
+                             Constant=0}"
+                          RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,
+                             Property=Width,
+                             Factor=1,
+                             Constant=0}"
+                         VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" Spacing="30">
              
                 <Label Text="Fugitive"  Style="{StaticResource TitleStyle}" />
                 <Label Text="You are being tracked"  Style="{StaticResource LabelStyle}"/>
@@ -35,15 +52,19 @@
                 <Button Text="Surrender" HorizontalOptions="Center" VerticalOptions="End" />
          
             </StackLayout>
-            <StackLayout RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent,
+            <StackLayout  RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent,
                              Property=Height,
                              Factor=1,
                              Constant=-20}"
                          RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent,
                              Property=Width,
                              Factor=0,
+                             Constant=0}"
+                          RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,
+                             Property=Width,
+                             Factor=1,
                              Constant=0}">
-                <Label Text="Debug" TextColor="Gray" x:Name="debug" />
+                <Label Text="Debug" TextColor="Gray" x:Name="debug" XAlign="Center"/>
             </StackLayout>
        </RelativeLayout>
     </ContentPage.Content>
