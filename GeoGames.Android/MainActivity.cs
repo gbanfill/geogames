@@ -26,9 +26,15 @@ namespace GeoGames.Droid
 
 			RaygunClient.Attach("hE22yVqWFboJm4JvT0c90Q==");
 
-
             global::Xamarin.Forms.Forms.Init(this, bundle);
 			Xamarin.FormsMaps.Init(this, bundle);
+
+            var uri = this.Intent.Data;
+            if (uri != null)
+            {
+                String path = uri.Path;
+                // if we have a path launch properly.
+            }
             LoadApplication(new App());
 
 			CrossCurrentActivity.Current.Activity = this;

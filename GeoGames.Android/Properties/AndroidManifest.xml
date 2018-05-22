@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="10000000" android:versionName="1.0" package="co.uk.Linknode.GeoGames">
-	<uses-sdk android:minSdkVersion="19" android:targetSdkVersion="27" />
+	<uses-sdk />
 	<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 	<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 	<uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS" />
@@ -12,4 +12,10 @@
 		<meta-data android:name="com.google.android.geo.API_KEY" android:value="AIzaSyDLCN8KCqugIjO1ySRnbP1IfDqjBBCvgtY" />
 		<meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version" />
 	</application>
+	<intent-filter>
+		<action android:name="android.intent.action.VIEW" />
+		<category android:name="android.intent.category.DEFAULT" />
+		<category android:name="android.intent.category.BROWSER" />
+		<data android:scheme="http" android:host="geogames.linknode.co.uk"  android:pathPrefix="/fugitive"/>
+	</intent-filter>
 </manifest>

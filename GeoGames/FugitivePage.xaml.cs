@@ -31,7 +31,7 @@ namespace GeoGames
             if (CrossGeolocator.Current.IsListening)
                 return;
 
-            await CrossGeolocator.Current.StartListeningAsync(TimeSpan.FromSeconds(5), 10, true);
+            await CrossGeolocator.Current.StartListeningAsync(TimeSpan.FromSeconds(1), 1);
 
             CrossGeolocator.Current.PositionChanged += PositionChanged;
             CrossGeolocator.Current.PositionError += PositionError;
@@ -42,7 +42,7 @@ namespace GeoGames
 
             //If updating the UI, ensure you invoke on main thread
             var position = e.Position;
-            var output = "Lat: " + position.Latitude + " Long: " + position.Longitude;
+            var output = "Lat: " + position.Latitude + " Long: " + position.Longitude + " accuracy: " + position.Accuracy;
 			debug.Text = output;
         }
 
