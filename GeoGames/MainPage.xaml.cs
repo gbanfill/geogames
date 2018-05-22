@@ -12,6 +12,8 @@ namespace GeoGames
         public MainPage()
         {
             InitializeComponent();
+            System.Reflection.Assembly assembly = System.Reflection.Assembly.GetExecutingAssembly();
+            version.Text = assembly.GetName().Version.ToString();
         }
 
 		private async void Tracker_OnClicked(object sender, EventArgs e) {  
