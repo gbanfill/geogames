@@ -26,6 +26,7 @@ namespace GeoGames.Droid
 
 			RaygunClient.Attach("hE22yVqWFboJm4JvT0c90Q==");
 
+
             global::Xamarin.Forms.Forms.Init(this, bundle);
 			Xamarin.FormsMaps.Init(this, bundle);
 

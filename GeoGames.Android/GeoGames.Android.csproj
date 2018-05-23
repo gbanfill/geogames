@@ -68,16 +68,33 @@
     <PackageReference Include="Mindscape.Raygun4Net">
       <Version>5.5.4</Version>
     </PackageReference>
+    <PackageReference Include="Newtonsoft.Json">
+      <Version>11.0.2</Version>
+    </PackageReference>
+    <PackageReference Include="Square.OkHttp">
+      <Version>2.7.5</Version>
+    </PackageReference>
+    <PackageReference Include="Websockets.Pcl">
+      <Version>1.1.9</Version>
+    </PackageReference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="MainActivity.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Realtime.Messaging.Android\Balancer.cs" />
+    <Compile Include="Realtime.Messaging.Android\GcmListenerService.cs" />
+    <Compile Include="Realtime.Messaging.Android\InstanceIDListenerService.cs" />
+    <Compile Include="Realtime.Messaging.Android\PushNotification.cs" />
+    <Compile Include="Realtime.Messaging.Android\RealtimeConnection.cs" />
+    <Compile Include="Realtime.Messaging.Android\RegistrationIntentService.cs" />
+    <Compile Include="Realtime.Messaging.Android\Settings.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
     <None Include="Assets\AboutAssets.txt" />
     <None Include="Properties\AndroidManifest.xml" />
+    <None Include="Realtime.Messaging.Android\Resources\Values\Strings.xml" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\layout\Tabbar.axml" />
@@ -103,6 +120,7 @@
     <Folder Include="Resources\drawable-xhdpi\" />
     <Folder Include="Resources\drawable-xxhdpi\" />
     <Folder Include="Resources\drawable-xxxhdpi\" />
+    <Folder Include="Realtime.Messaging.Android\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\GeoGames\GeoGames.csproj">

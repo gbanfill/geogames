@@ -48,7 +48,8 @@
                 <Label Text="Tracker will reach you in approx"  Style="{StaticResource TextStyle}"/>
 
                 <Label Text="YY s" x:Name="time" Style="{StaticResource LabelStyle}"/>
-               
+
+                <Button Text="Go" Clicked="Go_Clicked" />
                 <Button Text="Surrender" HorizontalOptions="Center" VerticalOptions="End" />
          
             </StackLayout>

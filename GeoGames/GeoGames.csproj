@@ -2,14 +2,21 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
+    <SynchReleaseVersion>false</SynchReleaseVersion>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="Xamarin.Forms" Version="3.0.0.446417" />
     <PackageReference Include="Xam.Plugin.Geolocator" Version="4.2.0" />
     <PackageReference Include="Xamarin.Forms.Maps" Version="3.0.0.446417" />
+    <PackageReference Include="Newtonsoft.Json" Version="11.0.2" />
   </ItemGroup>
   <ItemGroup>
     <Compile Remove="FugitvePage.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Messaging\" />
+    <Folder Include="Messaging\Realtime.Framework\" />
   </ItemGroup>
 </Project>
