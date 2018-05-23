@@ -1,11 +1,12 @@
 ﻿using System;
 namespace GeoGames.Messaging
 {
-    public class FugitiveDistanceMessageEventArgs
+    public class MessageEventArgs<T>
     {
-        public FugitiveDistanceMessageEventArgs(FugitiveDistanceMessage message)
+        public MessageEventArgs(T message)
         {
         }
-        public FugitiveDistanceMessage Message { get; set; }
+
+        public T Message { get; set; }
     }
 }

@@ -6,5 +6,9 @@ namespace GeoGames.Messaging
         public BaseMessage()
         {
         }
+
+        public DateTime TimeStamp { get; set; }
+
+        public string Username { get; set; }
     }
 }
