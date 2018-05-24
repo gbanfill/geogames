@@ -13,7 +13,6 @@ namespace GeoGames
         public FugitivePage()
         {
             InitializeComponent();
-           ;
         }
 
         MessagingManager _messaging = new MessagingManager("testing");
@@ -22,6 +21,7 @@ namespace GeoGames
 		{
 			base.OnAppearing();
             _messaging.FugutiveDistanceRecieved += _messaging_FugutiveDistanceRecieved;
+            _messaging.Connected += _messaging_Connected;
 		
 
 		}
@@ -29,8 +29,15 @@ namespace GeoGames
 		{
 			base.OnDisappearing();
             _messaging.FugutiveDistanceRecieved -= _messaging_FugutiveDistanceRecieved;
+            _messaging.Connected -= _messaging_Connected;
 			await StopListeningForLocation();
 		}
+
+        void _messaging_Connected(object sender, EventArgs eventArgs)
+        {
+            join.IsEnabled = true;
+        }
+
 
         async Task StartListeningToLocation()
         {
@@ -74,19 +81,30 @@ namespace GeoGames
 
             CrossGeolocator.Current.PositionChanged -= PositionChanged;
             CrossGeolocator.Current.PositionError -= PositionError;
-
         }
 
         void _messaging_FugutiveDistanceRecieved(object sender, MessageEventArgs<FugitiveDistanceMessage> e)
         {
             distance.Text = string.Format("{0}m", e.Message.DistanceInM);
+            time.Text = e.Message.TimeToReach.TotalSeconds.ToString();
         }
 
-        async void Go_Clicked(object sender, EventArgs eventArgs)
+        async void Join_Clicked(object sender, EventArgs eventArgs)
         {
+            join.IsEnabled = false;
+            surrender.IsEnabled = true;
             _messaging.SendJoinGame(new JoinGameMessage());
 
             await StartListeningToLocation();
+        }
+
+        async void Surrender_Clicked(object sender, EventArgs eventArgs)
+        {
+            surrender.IsEnabled = false;
+            join.IsEnabled = true;
+            _messaging.SendSurrender(new SurrenderMessage());
+
+            await StopListeningForLocation();
         }
 	}
 }

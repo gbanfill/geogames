@@ -49,8 +49,8 @@
 
                 <Label Text="YY s" x:Name="time" Style="{StaticResource LabelStyle}"/>
 
-                <Button Text="Go" Clicked="Go_Clicked" />
-                <Button Text="Surrender" HorizontalOptions="Center" VerticalOptions="End" />
+                <Button x:Name="join" Text="Join" Clicked="Join_Clicked" IsEnabled="false" />
+                <Button x:Name="surrender" Text="Surrender" Clicked="Surrender_Clicked" />
          
             </StackLayout>
             <StackLayout  RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent,

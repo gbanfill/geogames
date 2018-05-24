@@ -51,6 +51,16 @@ namespace GeoGames.Messaging
            
         }
 
+        public delegate void ConnectedEventHandler(object sender, EventArgs e);
+
+        public event ConnectedEventHandler Connected;
+
+        protected virtual void RaiseConnected()
+        {
+            if (Connected != null)
+                Connected(this, new EventArgs());
+        }
+
         private void ortc_OnDiconnected(object sender)
         {
             
