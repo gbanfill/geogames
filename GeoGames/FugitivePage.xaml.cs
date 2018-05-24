@@ -18,7 +18,7 @@ namespace GeoGames
 
         MessagingManager _messaging = new MessagingManager("testing");
 
-		protected override async void OnAppearing()
+		protected override void OnAppearing()
 		{
 			base.OnAppearing();
             _messaging.FugutiveDistanceRecieved += _messaging_FugutiveDistanceRecieved;

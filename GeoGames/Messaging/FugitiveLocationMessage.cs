@@ -7,8 +7,6 @@ namespace GeoGames.Messaging
         {
         }
 
-        public string Username { get; set; }
-
         public double Latitide { get; set; }
 
         public double Longitude { get; set; }
