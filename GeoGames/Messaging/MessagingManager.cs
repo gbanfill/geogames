@@ -58,7 +58,7 @@ namespace GeoGames.Messaging
         {
             var decoded = System.Web.HttpUtility.UrlDecode(message);
             var msg = JsonConvert.DeserializeObject(decoded);
-            Newtonsoft.Json.
+           
             // convert message into appropaite opbject
             // RaiseFugutiveLocationRecieved(msg);
         }
