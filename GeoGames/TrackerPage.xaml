@@ -2,15 +2,19 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
              xmlns:maps="clr-namespace:Xamarin.Forms.Maps;assembly=Xamarin.Forms.Maps" 
+             xmlns:localMaps="clr-namespace:GeoGames.Maps" 
              x:Class="GeoGames.TrackerPage"
-             Title="Tracker">
+             Title="Tracker"
+             >
     <ContentPage.Content>
-        <StackLayout>
+        <StackLayout Margin="5">
             <Label Text="Fugitives are shown below" />
-            <maps:Map WidthRequest="320" HeightRequest="200"
+            <localMaps:BindableMap WidthRequest="320" HeightRequest="200"
                 x:Name="MyMap"
                 IsShowingUser="true"
-                MapType="Street" HasZoomEnabled="true" Margin="5"
+                MapType="Street" 
+                HasZoomEnabled="true" Margin="5"
+                MapPins="{Binding PinCollection}"
             />
          </StackLayout>
     </ContentPage.Content>
