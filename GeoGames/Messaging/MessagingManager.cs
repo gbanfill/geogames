@@ -48,7 +48,7 @@ namespace GeoGames.Messaging
 
         private void ortc_OnConnected(object sender)
         {
-           
+            RaiseConnected();
         }
 
         public delegate void ConnectedEventHandler(object sender, EventArgs e);
@@ -109,7 +109,7 @@ namespace GeoGames.Messaging
             var decoded = System.Web.HttpUtility.UrlDecode(message);
             var msg = JsonConvert.DeserializeObject<BaseMessage>(decoded, new MessageConvertor());
 
-            if (msg.ClientId != client.Id)
+            if (msg.ClientId != client.SessionId)
             {
                 // convert message into appropaite opbject
                 switch (msg.MessageType)
@@ -261,7 +261,7 @@ namespace GeoGames.Messaging
         {
             message.TimeStamp = DateTime.UtcNow;
             message.Username = UserName;
-            message.ClientId = client.Id;
+            message.ClientId = client.SessionId;
         }
     }
 }
