@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using Realtime.Messaging;
 
 namespace GeoGames.Messaging
@@ -11,6 +12,7 @@ namespace GeoGames.Messaging
         public MessagingManager(string username)
         {
             UserName = username;
+
             InitializeMessaging();
         }
 
@@ -54,13 +56,68 @@ namespace GeoGames.Messaging
             
         }
 
+        public class MessageConvertor : JsonConverter
+        {
+            public override object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer)
+            {
+                JToken jObject = JToken.ReadFrom(reader);
+                var type = jObject["MessageType"].ToString();
+
+                BaseMessage message;
+                switch (type)
+                {
+                    case "FugitiveDistance":
+                        message = new FugitiveDistanceMessage();
+                        break;
+                    case "FugitiveLocation":
+                        message = new FugitiveLocationMessage();
+                        break;
+                    default:
+                        throw new ArgumentOutOfRangeException();
+                }
+
+                serializer.Populate(jObject.CreateReader(), message);
+
+                return message;
+            }
+
+            public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)
+            {
+                JToken t = JToken.FromObject(value);
+
+                t.WriteTo(writer);
+            }
+
+            public override bool CanConvert(Type objectType)
+            {
+                return objectType.Equals(typeof(BaseMessage)) || objectType.IsSubclassOf(typeof(BaseMessage));
+            }
+        }
+
         private void OnMessageCallback(object sender, string channel, string message)
         {
             var decoded = System.Web.HttpUtility.UrlDecode(message);
-            var msg = JsonConvert.DeserializeObject(decoded);
-           
-            // convert message into appropaite opbject
-            // RaiseFugutiveLocationRecieved(msg);
+            var msg = JsonConvert.DeserializeObject<BaseMessage>(decoded, new MessageConvertor());
+
+            if (msg.ClientId != client.Id)
+            {
+                // convert message into appropaite opbject
+                switch (msg.MessageType)
+                {
+                    case "FugitiveLocation":
+                        RaiseFugutiveLocationRecieved((FugitiveLocationMessage)msg);
+                        break;
+                    case "FugitiveDistance":
+                        RaiseFugutiveDistanceRecieved((FugitiveDistanceMessage)msg);
+                        break;
+                    case "JoinGame":
+                        RaiseJoinGameRecieved((JoinGameMessage)msg);
+                        break;
+                    case "Surrender":
+                        RaiseSurrenderRecieved((SurrenderMessage)msg);
+                        break;
+                }
+            }
         }
         private void ortc_OnSubscribed(object sender, string channel)
         {
@@ -194,6 +251,7 @@ namespace GeoGames.Messaging
         {
             message.TimeStamp = DateTime.UtcNow;
             message.Username = UserName;
+            message.ClientId = client.Id;
         }
     }
 }

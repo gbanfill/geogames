@@ -7,6 +7,6 @@ namespace GeoGames.Messaging
         {
         }
 
-        public string UserName { get; set; }
+        public override string MessageType { get { return "Surrender"; } }
     }
 }

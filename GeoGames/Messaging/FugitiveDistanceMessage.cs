@@ -10,5 +10,7 @@ namespace GeoGames.Messaging
         public double DistanceInM { get; set; }
 
         public TimeSpan TimeToReach { get; set; }
+
+        public override string MessageType { get { return "FugitiveDistance"; } }
     }
 }

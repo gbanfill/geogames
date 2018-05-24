@@ -7,5 +7,7 @@ namespace GeoGames.Messaging
         {
         }
 
+
+        public override string MessageType { get { return "JoinGame"; } }
     }
 }

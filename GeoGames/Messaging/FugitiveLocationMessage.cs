@@ -11,6 +11,7 @@ namespace GeoGames.Messaging
 
         public double Longitude { get; set; }
 
-       
+
+        public override string MessageType { get { return "FugitiveLocation"; } }
     }
 }
