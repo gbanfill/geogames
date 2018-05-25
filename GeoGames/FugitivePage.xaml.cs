@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using GeoGames.Messaging;
+using GeoGames.ViewModel;
 using Plugin.Geolocator;
 using Plugin.Geolocator.Abstractions;
 using Xamarin.Forms;
@@ -13,6 +14,7 @@ namespace GeoGames
         public FugitivePage()
         {
             InitializeComponent();
+			BindingContext = ViewModelLocator.FugitiveViewModel;
         }
 
         MessagingManager _messaging = new MessagingManager("testing");
@@ -21,8 +23,7 @@ namespace GeoGames
 		{
 			base.OnAppearing();
             _messaging.FugutiveDistanceRecieved += _messaging_FugutiveDistanceRecieved;
-            _messaging.Connected += _messaging_Connected;
-		
+            _messaging.Connected += _messaging_Connected;		
 
 		}
 		protected override async void OnDisappearing()
@@ -35,7 +36,7 @@ namespace GeoGames
 
         void _messaging_Connected(object sender, EventArgs eventArgs)
         {
-            join.IsEnabled = true;
+			ViewModelLocator.FugitiveViewModel.JoinEnabled = true;         
         }
 
 
@@ -54,14 +55,13 @@ namespace GeoGames
         {
 
             //If updating the UI, ensure you invoke on main thread
-            var position = e.Position;
-            var output = "Lat: " + position.Latitude + " Long: " + position.Longitude + " Accuracy: " + position.Accuracy;
-			debug.Text = output;
+            
+			ViewModelLocator.FugitiveViewModel.Position = e.Position;
 
             var message = new FugitiveLocationMessage()
             {
-                Latitide = position.Latitude,
-                Longitude = position.Longitude
+                Latitide = e.Position.Latitude,
+                Longitude = e.Position.Longitude
             };
             _messaging.SendFugitiveLocation(message);
         }
@@ -85,14 +85,17 @@ namespace GeoGames
 
         void _messaging_FugutiveDistanceRecieved(object sender, MessageEventArgs<FugitiveDistanceMessage> e)
         {
-            distance.Text = string.Format("{0}m", e.Message.DistanceInM);
-            time.Text = e.Message.TimeToReach.TotalSeconds.ToString();
+			ViewModelLocator.FugitiveViewModel.Distance = e.Message.DistanceInM;
+			ViewModelLocator.FugitiveViewModel.Time = e.Message.TimeToReach.TotalSeconds;
+            ViewModelLocator.FugitiveViewModel.SurrenderEnabled = true;
+           
         }
 
         async void Join_Clicked(object sender, EventArgs eventArgs)
         {
-            join.IsEnabled = false;
-            surrender.IsEnabled = true;
+			ViewModelLocator.FugitiveViewModel.JoinEnabled = false;
+			ViewModelLocator.FugitiveViewModel.SurrenderEnabled = true;
+           
             _messaging.SendJoinGame(new JoinGameMessage());
 
             await StartListeningToLocation();
@@ -100,8 +103,8 @@ namespace GeoGames
 
         async void Surrender_Clicked(object sender, EventArgs eventArgs)
         {
-            surrender.IsEnabled = false;
-            join.IsEnabled = true;
+			ViewModelLocator.FugitiveViewModel.JoinEnabled = true;
+			ViewModelLocator.FugitiveViewModel.SurrenderEnabled = false;
             _messaging.SendSurrender(new SurrenderMessage());
 
             await StopListeningForLocation();

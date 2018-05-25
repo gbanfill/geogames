@@ -18,13 +18,13 @@
              </maps:Map>
             <Label Text="Frequency of fugitive location" />
             <StackLayout Orientation="Horizontal" HorizontalOptions="Fill">
-                <Slider HorizontalOptions="FillAndExpand" Maximum="120" Value="30" ValueChanged="fugitivefrequencySlider_ValueChanged" x:Name="fugitiveFrequencySlider"/>
-                <Label Text="30" HorizontalOptions="End" x:Name="fugitiveFrequencyLabel"/>
+                <Slider HorizontalOptions="FillAndExpand" Maximum="120" Value="{Binding FugitiveUpdateFrequency, Mode=TwoWay}" />
+                <Label Text="{Binding FugitiveUpdateFrequency}" HorizontalOptions="End" />
             </StackLayout>
             <Label Text="Frequency of tracker location" />
             <StackLayout Orientation="Horizontal" HorizontalOptions="Fill">
-                <Slider HorizontalOptions="FillAndExpand" Maximum="120.0" Value="30" ValueChanged="trackerfrequencySlider_ValueChanged" x:Name="trackerFrequencySlider"/>
-                <Label Text="30" HorizontalOptions="End" x:Name="trackerFrequencyLabel"/>
+                <Slider HorizontalOptions="FillAndExpand" Maximum="120.0" Value="{Binding TrackerUpdateFrequency, Mode=TwoWay}" />
+                <Label Text="{Binding TrackerUpdateFrequency}" HorizontalOptions="End" />
             </StackLayout>
             <Button Text="Invite fugitives" Clicked="InviteFugitives_Clicked"  />
         </StackLayout>

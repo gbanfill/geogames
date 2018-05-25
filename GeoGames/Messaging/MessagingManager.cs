@@ -160,7 +160,7 @@ namespace GeoGames.Messaging
             }
             else
             {
-                //throw new Exception("not connected. Call Join Game first");
+                throw new Exception("not connected. Call Join Game first");
             }
             return true;
         }
@@ -241,6 +241,16 @@ namespace GeoGames.Messaging
         public bool SendFugitiveDistance(FugitiveDistanceMessage message)
         {
             EnsureUsername(message);
+
+			if (client.IsConnected && client.IsSubscribed(Channel))
+            {
+                string data = System.Web.HttpUtility.UrlEncode(JsonConvert.SerializeObject(message));
+                client.Send(Channel, data);
+            }
+            else
+            {
+                throw new Exception("not connected. Call Join Game first");
+            }
 
             return true;
         }

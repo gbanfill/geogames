@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using GeoGames.ViewModel;
 using Plugin.Geolocator;
 using Xamarin.Forms;
 using Xamarin.Forms.Maps;
@@ -11,6 +12,7 @@ namespace GeoGames
         public TrackerSetup()
         {
             InitializeComponent();
+			BindingContext = ViewModelLocator.TrackerViewModel;
         }
 
 		protected override async void OnAppearing()
@@ -21,17 +23,6 @@ namespace GeoGames
 
 		}
 
-		private void fugitivefrequencySlider_ValueChanged(object sender, EventArgs e)
-		{
-			fugitiveFrequencyLabel.Text = fugitiveFrequencySlider.Value.ToString("##");
-
-		}
-
-		private void trackerfrequencySlider_ValueChanged(object sender, EventArgs e)
-		{
-			trackerFrequencyLabel.Text = trackerFrequencySlider.Value.ToString("##");
-		}
-        
 		private async void InviteFugitives_Clicked(object sender, EventArgs e)
 		{
 			await Navigation.PushAsync(new InviteFugitivesPage());  

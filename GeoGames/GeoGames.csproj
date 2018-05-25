@@ -14,10 +14,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Remove="FugitvePage.cs" />
+    <Compile Remove="MessageManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Messaging\" />
     <Folder Include="Messaging\Realtime.Framework\" />
     <Folder Include="Maps\" />
+    <Folder Include="ViewModel\" />
   </ItemGroup>
 </Project>
