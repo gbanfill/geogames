@@ -49,6 +49,7 @@
 
                 <Label Text="{Binding Time}" x:Name="time" Style="{StaticResource LabelStyle}"/>
 
+                <Entry Text="{Binding FugitiveName}" IsEnabled="{Binding JoinEnabled}" />
                 <Button x:Name="join" Text="Join" Clicked="Join_Clicked" IsEnabled="{Binding JoinEnabled}" />
                 <Button x:Name="surrender" Text="Surrender" Clicked="Surrender_Clicked" IsEnabled="{Binding SurrenderEnabled}" />
          

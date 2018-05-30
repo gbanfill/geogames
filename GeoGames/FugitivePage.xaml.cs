@@ -17,7 +17,7 @@ namespace GeoGames
 			BindingContext = ViewModelLocator.FugitiveViewModel;
         }
 
-        MessagingManager _messaging = new MessagingManager("testing");
+        MessagingManager _messaging = new MessagingManager("conecting");
 
 		protected override void OnAppearing()
 		{
@@ -95,7 +95,8 @@ namespace GeoGames
         {
 			ViewModelLocator.FugitiveViewModel.JoinEnabled = false;
 			ViewModelLocator.FugitiveViewModel.SurrenderEnabled = true;
-           
+
+			_messaging.UserName = ViewModelLocator.FugitiveViewModel.FugitiveName;
             _messaging.SendJoinGame(new JoinGameMessage());
 
             await StartListeningToLocation();

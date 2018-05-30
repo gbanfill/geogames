@@ -55,6 +55,14 @@ namespace GeoGames.ViewModel
 			}
 		}
 
+		private string _fugitiveName;
+
+        public string FugitiveName
+        {
+			get { return _fugitiveName; }
+			set { _fugitiveName = value; OnPropertyChanged("FugitiveName"); }
+        }
+
 
     }
 }
