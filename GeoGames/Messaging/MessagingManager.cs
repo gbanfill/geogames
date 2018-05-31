@@ -82,6 +82,9 @@ namespace GeoGames.Messaging
                     case "FugitiveLocation":
                         message = new FugitiveLocationMessage();
                         break;
+					case "GameStartsAt":
+						message = new GameStartsAtMessage();
+                        break;
                     default:
                         throw new ArgumentOutOfRangeException();
                 }
@@ -125,6 +128,9 @@ namespace GeoGames.Messaging
                         break;
                     case "Surrender":
                         RaiseSurrenderRecieved((SurrenderMessage)msg);
+                        break;
+					case "GameStartsAt":
+                        RaiseGameStartsAtRecieved((GameStartsAtMessage)msg);
                         break;
                 }
             }
@@ -266,6 +272,35 @@ namespace GeoGames.Messaging
         }
 
         #endregion
+
+		#region SendGameStartsAt
+		public bool SendGameStartsAt(GameStartsAtMessage message)
+		{
+			EnsureUsername(message);
+
+            if (client.IsConnected && client.IsSubscribed(Channel))
+            {
+                string data = System.Web.HttpUtility.UrlEncode(JsonConvert.SerializeObject(message));
+                client.Send(Channel, data);
+            }
+            else
+            {
+                throw new Exception("not connected. Call Join Game first");
+            }
+			return true;
+
+		}
+
+		public delegate void GameStartsAtEventHandler(object sender, MessageEventArgs<GameStartsAtMessage> e);
+
+		public event GameStartsAtEventHandler GameStartsAtRecieved;
+
+		protected virtual void RaiseGameStartsAtRecieved(GameStartsAtMessage message)
+        {
+			if (GameStartsAtRecieved != null)
+				GameStartsAtRecieved(this, new MessageEventArgs<GameStartsAtMessage>(message));
+        }
+		#endregion
 
         private void EnsureUsername(BaseMessage message)
         {

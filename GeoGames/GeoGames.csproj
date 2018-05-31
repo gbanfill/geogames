@@ -21,5 +21,6 @@
     <Folder Include="Messaging\Realtime.Framework\" />
     <Folder Include="Maps\" />
     <Folder Include="ViewModel\" />
+    <Folder Include="Convertors\" />
   </ItemGroup>
 </Project>
