@@ -15,5 +15,7 @@ namespace GeoGames.ViewModel
 		public static FugitiveViewModel FugitiveViewModel { get; set; }
 
 		public static TrackerViewModel TrackerViewModel { get; set; }
+
+		public static GameStartingViewModel GameStartingViewModel { get; set; }
     }
 }

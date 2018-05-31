@@ -23,6 +23,7 @@ namespace GeoGames
 		{
 			base.OnAppearing();
             _messaging.FugutiveDistanceRecieved += _messaging_FugutiveDistanceRecieved;
+			_messaging.GameStartsAtRecieved += _messaging_GameStartsAtRecieved;
             _messaging.Connected += _messaging_Connected;		
 
 		}
@@ -30,6 +31,7 @@ namespace GeoGames
 		{
 			base.OnDisappearing();
             _messaging.FugutiveDistanceRecieved -= _messaging_FugutiveDistanceRecieved;
+			_messaging.GameStartsAtRecieved -= _messaging_GameStartsAtRecieved;
             _messaging.Connected -= _messaging_Connected;
 			await StopListeningForLocation();
 		}
@@ -90,6 +92,15 @@ namespace GeoGames
             ViewModelLocator.FugitiveViewModel.SurrenderEnabled = true;
            
         }
+
+		async void _messaging_GameStartsAtRecieved(object sender, MessageEventArgs<GameStartsAtMessage> e)
+		{
+			ViewModelLocator.GameStartingViewModel = new GameStartingViewModel();
+			ViewModelLocator.GameStartingViewModel.StartingDateTime = e.Message.GameStartsAtTime;
+            ViewModelLocator.GameStartingViewModel.StartCountdownTimer();
+			await Navigation.PushModalAsync(new ModelGameCountDown());
+		}
+
 
         async void Join_Clicked(object sender, EventArgs eventArgs)
         {

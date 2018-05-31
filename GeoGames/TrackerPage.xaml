@@ -3,9 +3,14 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
              xmlns:maps="clr-namespace:Xamarin.Forms.Maps;assembly=Xamarin.Forms.Maps" 
              xmlns:localMaps="clr-namespace:GeoGames.Maps" 
+             xmlns:localConvertors="clr-namespace:GeoGames.Convertors" 
+             
              x:Class="GeoGames.TrackerPage"
              Title="Tracker"
              >
+     <ContentPage.Resources>
+        
+    </ContentPage.Resources>
     <ContentPage.Content>
         <StackLayout Margin="5">
             <Label Text="Fugitives are shown below" />

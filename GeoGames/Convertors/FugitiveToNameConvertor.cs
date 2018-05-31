@@ -5,9 +5,9 @@ using Xamarin.Forms;
 
 namespace GeoGames.Convertors
 {
-	public class FugitiveToMapPinConvertor : IValueConverter
+	public class FugitiveToNameConvertor : IValueConverter
     {
-        public FugitiveToMapPinConvertor()
+		public FugitiveToNameConvertor()
         {
         }
 
@@ -16,7 +16,7 @@ namespace GeoGames.Convertors
 			var fugitive = value as Fugitive;
 			if (fugitive != null)
 			{
-				return fugitive.Position;
+				return fugitive.Username;
 			}else{
 				return null;
 			}

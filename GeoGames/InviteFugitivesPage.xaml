@@ -2,9 +2,21 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="GeoGames.InviteFugitivesPage"
+             xmlns:localConvertors="GeoGames.Convertors"
              Title="Invite Fugitives">
+    <ContentPage.Resources>
+          </ContentPage.Resources>
     <ContentPage.Content>
-        <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
+        <StackLayout HorizontalOptions="Center" VerticalOptions="Center" Margin="5">
+            <Label Text="Current Fugitives:" ></Label>
+            <ListView ItemsSource="{Binding FugitiveCollection}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <TextCell Text="{Binding Username}" />
+                    </DataTemplate>
+                 </ListView.ItemTemplate>
+            </ListView>
+            <Button Text="Invite"  />
             <Button Text="Start" Clicked="StartGame_Clicked" />
         </StackLayout>
     </ContentPage.Content>

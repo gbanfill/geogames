@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-
+using GeoGames.ViewModel;
 using Xamarin.Forms;
 
 namespace GeoGames
@@ -10,11 +10,18 @@ namespace GeoGames
         public InviteFugitivesPage()
         {
             InitializeComponent();
+			BindingContext = ViewModelLocator.TrackerViewModel;
+			ViewModelLocator.TrackerViewModel.CreateMessaging("tracker");
         }
 
 		async void StartGame_Clicked(object sender, System.EventArgs e)
 		{
-			await Navigation.PushAsync(new TrackerPage());  
+			ViewModelLocator.GameStartingViewModel = new GameStartingViewModel();
+			ViewModelLocator.GameStartingViewModel.StartingDateTime = DateTime.Now.AddSeconds(10);
+			ViewModelLocator.GameStartingViewModel.StartCountdownTimer();
+			ViewModelLocator.TrackerViewModel.Messaging.SendGameStartsAt(ViewModelLocator.GameStartingViewModel.ToGameStartsMessage());
+			await Navigation.PushModalAsync(new ModelGameCountDown());  
+			await Navigation.PushAsync(new TrackerPage());
 		}
     }
 }
