@@ -24,7 +24,7 @@ namespace GeoGames
 			base.OnAppearing();
          
 			var position = await CrossGeolocator.Current.GetPositionAsync();
- 
+          
 			MyMap.MoveToRegion(MapSpan.FromCenterAndRadius(new Xamarin.Forms.Maps.Position(position.Latitude, position.Longitude), Distance.FromMiles(0.1)));
 		}
 

@@ -22,7 +22,7 @@
     </ContentPage.Resources>
     <ContentPage.Content>
         <RelativeLayout  VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
-            <StackLayout   
+            <StackLayout 
                         RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent,
                              Property=Height,
                              Factor=0,
@@ -39,20 +39,21 @@
                              Property=Width,
                              Factor=1,
                              Constant=0}"
-                         VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" Spacing="30">
+                         VerticalOptions="Start" HorizontalOptions="CenterAndExpand" Spacing="15">
              
-                <Label Text="Fugitive"  Style="{StaticResource TitleStyle}" />
                 <Label Text="You are being tracked"  Style="{StaticResource LabelStyle}"/>
                 <Label Text="Distance of tracker to you"  Style="{StaticResource TextStyle}"/>
                 <Label Text="{Binding Distance}"  x:Name="distance" Style="{StaticResource LabelStyle}"/>
                 <Label Text="Tracker will reach you in approx"  Style="{StaticResource TextStyle}"/>
 
                 <Label Text="{Binding Time}" x:Name="time" Style="{StaticResource LabelStyle}"/>
-
-                <Entry Text="{Binding FugitiveName}" IsEnabled="{Binding JoinEnabled}" />
+                <StackLayout Orientation="Horizontal" VerticalOptions="CenterAndExpand">
+                    <Label Text="Username" IsEnabled="{Binding JoinEnabled}" VerticalOptions="Center"/>
+                    <Entry Text="{Binding FugitiveName}" IsEnabled="{Binding JoinEnabled}" WidthRequest="200" VerticalOptions="Center" />
+                </StackLayout>
                 <Button x:Name="join" Text="Join" Clicked="Join_Clicked" IsEnabled="{Binding JoinEnabled}" />
                 <Button x:Name="surrender" Text="Surrender" Clicked="Surrender_Clicked" IsEnabled="{Binding SurrenderEnabled}" />
-         
+                <Label/>
             </StackLayout>
             <StackLayout  RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent,
                              Property=Height,

@@ -99,18 +99,17 @@ namespace GeoGames
 			ViewModelLocator.GameStartingViewModel.StartingDateTime = e.Message.GameStartsAtTime;
             ViewModelLocator.GameStartingViewModel.StartCountdownTimer();
 			await Navigation.PushModalAsync(new ModelGameCountDown());
+			await StartListeningToLocation();
 		}
 
 
-        async void Join_Clicked(object sender, EventArgs eventArgs)
+        void Join_Clicked(object sender, EventArgs eventArgs)
         {
 			ViewModelLocator.FugitiveViewModel.JoinEnabled = false;
 			ViewModelLocator.FugitiveViewModel.SurrenderEnabled = true;
 
 			_messaging.UserName = ViewModelLocator.FugitiveViewModel.FugitiveName;
             _messaging.SendJoinGame(new JoinGameMessage());
-
-            await StartListeningToLocation();
         }
 
         async void Surrender_Clicked(object sender, EventArgs eventArgs)
