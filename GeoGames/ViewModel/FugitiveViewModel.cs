@@ -51,7 +51,7 @@ namespace GeoGames.ViewModel
 			get { return _position; }
 			set { _position = value; 
 				OnPropertyChanged("Position"); 
-				FugitiveLocationString = string.Format("Lat: {0} Long: {1} Accuracy: {2}" , value.Latitude,  value.Longitude, value.Accuracy);
+				FugitiveLocationString = string.Format("Lat: {0} Long: {1} Accuracy: {2:0.00}" , value.Latitude,  value.Longitude, value.Accuracy);
 			}
 		}
 

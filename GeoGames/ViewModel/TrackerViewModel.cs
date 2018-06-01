@@ -3,6 +3,8 @@ using System.Collections.ObjectModel;
 using GeoGames.Messaging;
 using Xamarin.Forms.Maps;
 using System.Linq;
+using Plugin.Geolocator.Abstractions;
+using GeoGames.Extensions;
 
 namespace GeoGames.ViewModel
 {
@@ -36,12 +38,25 @@ namespace GeoGames.ViewModel
             }
         }
 
+		private Plugin.Geolocator.Abstractions.Position _position;
+        public Plugin.Geolocator.Abstractions.Position Position
+        {
+            get { return _position; }
+            set
+            {
+                _position = value;
+                OnPropertyChanged("Position");
+            }
+        }
+
 		public void CreateMessaging(string username)
 		{
 			Messaging = new MessagingManager(username);
             
 			Messaging.Connected += _messaging_Connected;
 			Messaging.FugutiveLocationRecieved += _messaging_FugutiveLocationRecieved;
+			Messaging.HelloRecieved += Messaging_HelloRecieved;
+			Messaging.SurrenderRecieved += Messaging_SurrenderRecieved;
 			//TODO: remember to dispose of these
 		}
 
@@ -71,13 +86,43 @@ namespace GeoGames.ViewModel
                 ViewModelLocator.TrackerViewModel.FugitiveCollection.Add(fugitive);
             }
             ViewModelLocator.TrackerViewModel.UpdateMapPins();
+			if (ViewModelLocator.TrackerViewModel.Position != null)
+			{
+				var fugitiveGeolocatorPosition = fugitive.Position.ToGeolocatorPosition();
+                
+				var distanceInKM = ViewModelLocator.TrackerViewModel.Position.CalculateDistance(fugitiveGeolocatorPosition, GeolocatorUtils.DistanceUnits.Kilometers);
+				fugitive.DistanceToFugitive = distanceInKM * 1000;
+				fugitive.TimeToReachFugitive = TimeSpan.FromSeconds(fugitive.DistanceToFugitive * FIVE_METERS_PER_SECOND);
+				FugitiveDistanceMessage msg = fugitive.ToFugitiveDistanceMessage();
 
-            fugitive.DistanceToFugitive = 100;
-            fugitive.TimeToReachFugitive = TimeSpan.FromSeconds(30);
-            FugitiveDistanceMessage msg = fugitive.ToFugitiveDistanceMessage();
-
-            ViewModelLocator.TrackerViewModel.Messaging.SendFugitiveDistance(msg);
+				ViewModelLocator.TrackerViewModel.Messaging.SendFugitiveDistance(msg);
+			}
         }
+
+		void Messaging_JoinGameRecieved(object sender, MessageEventArgs<JoinGameMessage> e)
+		{
+		}
+
+		void Messaging_HelloRecieved(object sender, MessageEventArgs<HelloMessage> e)
+		{
+			ViewModelLocator.TrackerViewModel.FugitiveCollection.Add(
+				new Fugitive() { ClientId = e.Message.ClientId, Username = e.Message.Username }
+			);
+			UpdateMapPins();
+		}
+
+		void Messaging_SurrenderRecieved(object sender, MessageEventArgs<SurrenderMessage> e)
+		{
+			var fugitive = ViewModelLocator.TrackerViewModel.FugitiveCollection.FirstOrDefault(f => f.ClientId == e.Message.ClientId);
+			if (fugitive != null)
+			{
+				ViewModelLocator.TrackerViewModel.FugitiveCollection.Remove(fugitive);
+			}
+			UpdateMapPins();
+		}
+
+
+		private const int FIVE_METERS_PER_SECOND = 5;
 
 		public MessagingManager Messaging { get; set; }
 

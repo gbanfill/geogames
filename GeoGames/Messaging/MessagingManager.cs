@@ -83,7 +83,13 @@ namespace GeoGames.Messaging
                         message = new FugitiveLocationMessage();
                         break;
 					case "GameStartsAt":
-						message = new GameStartsAtMessage();
+                        message = new GameStartsAtMessage();
+                        break;
+					case "HelloMessage":
+						message = new HelloMessage();
+                        break;
+					case "Surrender":
+						message = new SurrenderMessage();
                         break;
                     default:
                         throw new ArgumentOutOfRangeException();
@@ -132,17 +138,55 @@ namespace GeoGames.Messaging
 					case "GameStartsAt":
                         RaiseGameStartsAtRecieved((GameStartsAtMessage)msg);
                         break;
+					case "HelloMessage":
+						RaiseHelloRecieved((HelloMessage)msg);
+                        break;
                 }
             }
         }
         private void ortc_OnSubscribed(object sender, string channel)
         {
-            
+			SendHello(new HelloMessage());
         }
 
         private void ortc_OnException(object sender, Exception ex)
         {
            
+        }
+
+        #endregion
+
+		#region Hello
+
+        /// <summary>
+        /// Sends the fugitive location.
+        /// </summary>
+        /// <returns><c>true</c>, if fugitive location was sent, <c>false</c> otherwise.</returns>
+        /// <param name="message">Message.</param>
+        public bool SendHello(HelloMessage message)
+        {
+            EnsureUsername(message);
+
+            if (client.IsConnected && client.IsSubscribed(Channel))
+            {
+                string data = System.Web.HttpUtility.UrlEncode(JsonConvert.SerializeObject(message));
+                client.Send(Channel, data);
+            }
+            else
+            {
+                throw new Exception("not connected. Call Join Game first");
+            }
+            return true;
+        }
+
+        public delegate void HelloEventHandler(object sender, MessageEventArgs<HelloMessage> e);
+
+		public event HelloEventHandler HelloRecieved;
+
+		protected virtual void RaiseHelloRecieved(HelloMessage message)
+        {
+			if (HelloRecieved != null)
+				HelloRecieved(this, new MessageEventArgs<HelloMessage>(message));
         }
 
         #endregion
@@ -220,6 +264,16 @@ namespace GeoGames.Messaging
         public bool SendSurrender(SurrenderMessage message)
         {
             EnsureUsername(message);
+
+			if (client.IsConnected && client.IsSubscribed(Channel))
+            {
+                string data = System.Web.HttpUtility.UrlEncode(JsonConvert.SerializeObject(message));
+                client.Send(Channel, data);
+            }
+            else
+            {
+                throw new Exception("not connected. Call Join Game first");
+            }
 
             return true;
         }

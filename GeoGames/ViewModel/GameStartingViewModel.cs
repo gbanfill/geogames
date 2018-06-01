@@ -29,7 +29,7 @@ namespace GeoGames.ViewModel
 			Timer t = new Timer(250);
 			t.Elapsed += (object sender, ElapsedEventArgs e) => {
 				SecondsToStart = (StartingDateTime - DateTime.Now).Seconds;
-				if (SecondsToStart < 0)
+				if (SecondsToStart <= 0)
 				{
 					t.Stop();
 					Device.BeginInvokeOnMainThread(async () => {

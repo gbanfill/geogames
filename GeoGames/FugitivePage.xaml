@@ -43,16 +43,17 @@
              
                 <Label Text="You are being tracked"  Style="{StaticResource LabelStyle}"/>
                 <Label Text="Distance of tracker to you"  Style="{StaticResource TextStyle}"/>
-                <Label Text="{Binding Distance}"  x:Name="distance" Style="{StaticResource LabelStyle}"/>
+                <Label Text="{Binding Distance, StringFormat='{0:0.0}m'}"  x:Name="distance" Style="{StaticResource LabelStyle}"/>
                 <Label Text="Tracker will reach you in approx"  Style="{StaticResource TextStyle}"/>
 
-                <Label Text="{Binding Time}" x:Name="time" Style="{StaticResource LabelStyle}"/>
+                <Label Text="{Binding Time, StringFormat='{0:0}s'}" x:Name="time" Style="{StaticResource LabelStyle}"/>
                 <StackLayout Orientation="Horizontal" VerticalOptions="CenterAndExpand">
                     <Label Text="Username" IsEnabled="{Binding JoinEnabled}" VerticalOptions="Center"/>
                     <Entry Text="{Binding FugitiveName}" IsEnabled="{Binding JoinEnabled}" WidthRequest="200" VerticalOptions="Center" />
                 </StackLayout>
                 <Button x:Name="join" Text="Join" Clicked="Join_Clicked" IsEnabled="{Binding JoinEnabled}" />
                 <Button x:Name="surrender" Text="Surrender" Clicked="Surrender_Clicked" IsEnabled="{Binding SurrenderEnabled}" />
+                <Button  Text="Send location" Clicked="SendNow_Clicked" IsEnabled="{Binding SurrenderEnabled}" />
                 <Label/>
             </StackLayout>
             <StackLayout  RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent,

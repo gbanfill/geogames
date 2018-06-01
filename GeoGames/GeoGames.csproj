@@ -22,5 +22,6 @@
     <Folder Include="Maps\" />
     <Folder Include="ViewModel\" />
     <Folder Include="Convertors\" />
+    <Folder Include="Extensions\" />
   </ItemGroup>
 </Project>

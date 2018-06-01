@@ -120,5 +120,17 @@ namespace GeoGames
 
             await StopListeningForLocation();
         }
+
+		async void SendNow_Clicked(object sender, EventArgs args)
+		{
+			ViewModelLocator.FugitiveViewModel.Position = await CrossGeolocator.Current.GetLastKnownLocationAsync();
+
+            var message = new FugitiveLocationMessage()
+            {
+				Latitide = ViewModelLocator.FugitiveViewModel.Position.Latitude,
+				Longitude = ViewModelLocator.FugitiveViewModel.Position.Longitude
+            };
+            _messaging.SendFugitiveLocation(message);
+		}
 	}
 }
