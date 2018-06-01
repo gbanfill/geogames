@@ -325,11 +325,15 @@ namespace GeoGames.Messaging
         public delegate void FugitiveDistanceEventHandler(object sender, MessageEventArgs<FugitiveDistanceMessage> e);
 
         public event FugitiveDistanceEventHandler FugutiveDistanceRecieved;
-
+        
         protected virtual void RaiseFugutiveDistanceRecieved(FugitiveDistanceMessage message)
         {
-            if (FugutiveDistanceRecieved != null)
-                FugutiveDistanceRecieved(this, new MessageEventArgs<FugitiveDistanceMessage>(message));
+			if (message.FugitiveClientId == client.SessionId)
+			{
+				// only dispatch this message if it is intended for this session
+				if (FugutiveDistanceRecieved != null)
+					FugutiveDistanceRecieved(this, new MessageEventArgs<FugitiveDistanceMessage>(message));
+			}
         }
 
         #endregion

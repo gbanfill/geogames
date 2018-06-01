@@ -30,7 +30,8 @@ namespace GeoGames.ViewModel
 			FugitiveDistanceMessage msg = new FugitiveDistanceMessage()
 			{
 				DistanceInM = DistanceToFugitive,
-				TimeToReach = TimeToReachFugitive
+				TimeToReach = TimeToReachFugitive,
+				FugitiveClientId = ClientId
             };
 
 			return msg;

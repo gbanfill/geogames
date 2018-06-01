@@ -11,6 +11,8 @@ namespace GeoGames.Messaging
 
         public TimeSpan TimeToReach { get; set; }
 
+		public string FugitiveClientId { get; set; }
+
         public override string MessageType { get { return "FugitiveDistance"; } }
     }
 }
