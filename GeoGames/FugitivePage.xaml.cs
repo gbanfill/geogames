@@ -25,6 +25,7 @@ namespace GeoGames
             _messaging.FugutiveDistanceRecieved += _messaging_FugutiveDistanceRecieved;
 			_messaging.GameStartsAtRecieved += _messaging_GameStartsAtRecieved;
             _messaging.Connected += _messaging_Connected;		
+			_messaging.CaughtRecieved += _messaging_CaughtRecieved;
 
 		}
 		protected override async void OnDisappearing()
@@ -102,6 +103,12 @@ namespace GeoGames
 			await StartListeningToLocation();
 		}
 
+		async void _messaging_CaughtRecieved(object sender, MessageEventArgs<CaughtMessage> e)
+        {
+			await StopListeningForLocation();
+			await Navigation.PushModalAsync(new CaughtPage());
+
+        }
 
         void Join_Clicked(object sender, EventArgs eventArgs)
         {
@@ -132,5 +139,8 @@ namespace GeoGames
             };
             _messaging.SendFugitiveLocation(message);
 		}
+
+
+
 	}
 }

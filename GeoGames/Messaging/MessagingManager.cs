@@ -91,6 +91,9 @@ namespace GeoGames.Messaging
 					case "Surrender":
 						message = new SurrenderMessage();
                         break;
+					case "CaughtMessage":
+						message = new CaughtMessage();
+                        break;
                     default:
                         throw new ArgumentOutOfRangeException();
                 }
@@ -141,6 +144,9 @@ namespace GeoGames.Messaging
 					case "HelloMessage":
 						RaiseHelloRecieved((HelloMessage)msg);
                         break;
+					case "CaughtMessage":
+						RaiseCaughtRecieved((CaughtMessage)msg);
+						break;
                 }
             }
         }
@@ -337,6 +343,44 @@ namespace GeoGames.Messaging
         }
 
         #endregion
+
+		#region SendCaughtMessage
+		/// <summary>
+        /// Sends the surrender message
+        /// </summary>
+        /// <returns><c>true</c>, if surrender was sent, <c>false</c> otherwise.</returns>
+        /// <param name="message">Message.</param>
+		public bool SendCaughtMessage(CaughtMessage message)
+        {
+            EnsureUsername(message);
+
+            if (client.IsConnected && client.IsSubscribed(Channel))
+            {
+                string data = System.Web.HttpUtility.UrlEncode(JsonConvert.SerializeObject(message));
+                client.Send(Channel, data);
+            }
+            else
+            {
+                throw new Exception("not connected. Call Join Game first");
+            }
+
+            return true;
+        }
+
+        public delegate void CaughtEventHandler(object sender, MessageEventArgs<CaughtMessage> e);
+
+		public event CaughtEventHandler CaughtRecieved;
+
+		protected virtual void RaiseCaughtRecieved(CaughtMessage message)
+        {
+            if (message.FugitiveClientId == client.SessionId)
+            {
+                // only dispatch this message if it is intended for this session
+				if (CaughtRecieved != null)
+					CaughtRecieved(this, new MessageEventArgs<CaughtMessage>(message));
+            }
+        }
+		#endregion
 
 		#region SendGameStartsAt
 		public bool SendGameStartsAt(GameStartsAtMessage message)

@@ -36,5 +36,16 @@ namespace GeoGames.ViewModel
 
 			return msg;
 		}
+
+		public CaughtMessage ToCaughtMessage()
+		{
+			CaughtMessage msg = new CaughtMessage()
+			{
+				DistanceInM = DistanceToFugitive,
+				FugitiveClientId = ClientId,
+
+			};
+			return msg;
+		}
 	}
 }

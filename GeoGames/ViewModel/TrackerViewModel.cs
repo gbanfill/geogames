@@ -96,9 +96,15 @@ namespace GeoGames.ViewModel
 				var distanceInKM = ViewModelLocator.TrackerViewModel.Position.CalculateDistance(fugitiveGeolocatorPosition, GeolocatorUtils.DistanceUnits.Kilometers);
 				fugitive.DistanceToFugitive = distanceInKM * 1000;
 				fugitive.TimeToReachFugitive = TimeSpan.FromSeconds(fugitive.DistanceToFugitive / FIVE_METERS_PER_SECOND);
-				FugitiveDistanceMessage msg = fugitive.ToFugitiveDistanceMessage();
+				if (fugitive.DistanceToFugitive > CAUGHT_DISTANCE)
+				{
+					FugitiveDistanceMessage msg = fugitive.ToFugitiveDistanceMessage();
+					ViewModelLocator.TrackerViewModel.Messaging.SendFugitiveDistance(msg);
+				}else{
+					CaughtMessage msg = fugitive.ToCaughtMessage();
 
-				ViewModelLocator.TrackerViewModel.Messaging.SendFugitiveDistance(msg);
+                    ViewModelLocator.TrackerViewModel.Messaging.SendCaughtMessage(msg);
+				}
 			}
         }
 
@@ -129,6 +135,7 @@ namespace GeoGames.ViewModel
 
 
 		private const int FIVE_METERS_PER_SECOND = 5;
+		private const int CAUGHT_DISTANCE = 5;
 
 		public MessagingManager Messaging { get; set; }
 
