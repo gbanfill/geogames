@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="10000000" android:versionName="1.0" package="co.uk.Linknode.GeoGames">
-	<uses-sdk />
+	<uses-sdk android:minSdkVersion="26" android:targetSdkVersion="26" />
 	<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 	<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 	<uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS" />
@@ -16,14 +16,12 @@
 		<action android:name="android.intent.action.VIEW" />
 		<category android:name="android.intent.category.DEFAULT" />
 		<category android:name="android.intent.category.BROWSABLE" />
-		<data android:scheme="http" android:host="geogames.linknode.co.uk"  android:pathPrefix="/fugitive"/>
+		<data android:scheme="http" android:host="geogames.linknode.co.uk" android:pathPrefix="/fugitive" />
 	</intent-filter>
-     <intent-filter >
-        <action android:name="android.intent.action.VIEW" />
-        <category android:name="android.intent.category.DEFAULT" />
-        <category android:name="android.intent.category.BROWSABLE" />
-        <data android:scheme="geogames"
-              android:host="fugitive" />
-    </intent-filter>
-
+	<intent-filter>
+		<action android:name="android.intent.action.VIEW" />
+		<category android:name="android.intent.category.DEFAULT" />
+		<category android:name="android.intent.category.BROWSABLE" />
+		<data android:scheme="geogames" android:host="fugitive" />
+	</intent-filter>
 </manifest>
