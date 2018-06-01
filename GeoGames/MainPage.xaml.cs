@@ -18,12 +18,18 @@ namespace GeoGames
         }
 
 		private async void Tracker_OnClicked(object sender, EventArgs e) {
-			ViewModelLocator.TrackerViewModel = new TrackerViewModel();
+			if (ViewModelLocator.TrackerViewModel == null)
+			{
+			    ViewModelLocator.TrackerViewModel = new TrackerViewModel();
+			}
 			await Navigation.PushAsync(new TrackerSetup());  
         }  
 
 		private async void Fugitive_OnClicked(object sender, EventArgs e) {
-			ViewModelLocator.FugitiveViewModel = new FugitiveViewModel();
+			if (ViewModelLocator.FugitiveViewModel == null)
+			{
+				ViewModelLocator.FugitiveViewModel = new FugitiveViewModel();
+			}
 			await Navigation.PushAsync(new FugitivePage());  
         }  
     }

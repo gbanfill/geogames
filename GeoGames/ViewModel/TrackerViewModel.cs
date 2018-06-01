@@ -51,12 +51,15 @@ namespace GeoGames.ViewModel
 
 		public void CreateMessaging(string username)
 		{
-			Messaging = new MessagingManager(username);
-            
-			Messaging.Connected += _messaging_Connected;
-			Messaging.FugutiveLocationRecieved += _messaging_FugutiveLocationRecieved;
-			Messaging.HelloRecieved += Messaging_HelloRecieved;
-			Messaging.SurrenderRecieved += Messaging_SurrenderRecieved;
+			if (Messaging == null)
+			{
+				Messaging = new MessagingManager(username);
+
+				Messaging.Connected += _messaging_Connected;
+				Messaging.FugutiveLocationRecieved += _messaging_FugutiveLocationRecieved;
+				Messaging.HelloRecieved += Messaging_HelloRecieved;
+				Messaging.SurrenderRecieved += Messaging_SurrenderRecieved;
+			}
 			//TODO: remember to dispose of these
 		}
 
@@ -92,7 +95,7 @@ namespace GeoGames.ViewModel
                 
 				var distanceInKM = ViewModelLocator.TrackerViewModel.Position.CalculateDistance(fugitiveGeolocatorPosition, GeolocatorUtils.DistanceUnits.Kilometers);
 				fugitive.DistanceToFugitive = distanceInKM * 1000;
-				fugitive.TimeToReachFugitive = TimeSpan.FromSeconds(fugitive.DistanceToFugitive * FIVE_METERS_PER_SECOND);
+				fugitive.TimeToReachFugitive = TimeSpan.FromSeconds(fugitive.DistanceToFugitive / FIVE_METERS_PER_SECOND);
 				FugitiveDistanceMessage msg = fugitive.ToFugitiveDistanceMessage();
 
 				ViewModelLocator.TrackerViewModel.Messaging.SendFugitiveDistance(msg);
@@ -105,10 +108,13 @@ namespace GeoGames.ViewModel
 
 		void Messaging_HelloRecieved(object sender, MessageEventArgs<HelloMessage> e)
 		{
-			ViewModelLocator.TrackerViewModel.FugitiveCollection.Add(
-				new Fugitive() { ClientId = e.Message.ClientId, Username = e.Message.Username }
-			);
-			UpdateMapPins();
+			var fugitive = ViewModelLocator.TrackerViewModel.FugitiveCollection.FirstOrDefault(f => f.ClientId == e.Message.ClientId);
+			if (fugitive == null)
+			{
+				ViewModelLocator.TrackerViewModel.FugitiveCollection.Add(
+					new Fugitive() { ClientId = e.Message.ClientId, Username = e.Message.Username }
+				);
+			}
 		}
 
 		void Messaging_SurrenderRecieved(object sender, MessageEventArgs<SurrenderMessage> e)
