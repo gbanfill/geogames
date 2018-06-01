@@ -148,6 +148,7 @@ namespace GeoGames.ViewModel
 
 		internal void UpdateMapPins()
 		{
+			PinCollection.Clear();
 			foreach(var f in FugitiveCollection)
 			{
 				PinCollection.Add(new Pin()

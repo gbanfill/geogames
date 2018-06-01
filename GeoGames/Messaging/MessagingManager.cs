@@ -238,7 +238,14 @@ namespace GeoGames.Messaging
         {
             EnsureUsername(message);
             Channel = "GeoGame-Testing";
-            client.Subscribe(Channel, true, OnMessageCallback);
+			if (client.IsSubscribed(Channel))
+			{
+				SendHello(new HelloMessage());
+			}
+			else
+			{
+				client.Subscribe(Channel, true, OnMessageCallback);
+			}
             return true;
         }
 
