@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="GeoGames.FugitivePage" Title="Fugitive">
+<ContentPage 
+    xmlns="http://xamarin.com/schemas/2014/forms" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+    xmlns:convertors="clr-namespace:GeoGames.Convertors" 
+    x:Class="GeoGames.FugitivePage"
+    Title="Fugitive">
     <ContentPage.Resources>
         <ResourceDictionary>
             <Style x:Key="LabelStyle" TargetType="Label">
@@ -18,6 +23,7 @@
                 <Setter Property="FontAttributes" Value="Bold" />
                 <Setter Property="HorizontalOptions" Value="Center" />
             </Style>
+            <convertors:ZeroDoubleConvertor x:Key="DoubleNullConvertor"/>
         </ResourceDictionary>
     </ContentPage.Resources>
     <ContentPage.Content>
@@ -43,10 +49,10 @@
              
                 <Label Text="You are being tracked"  Style="{StaticResource LabelStyle}"/>
                 <Label Text="Distance of tracker to you"  Style="{StaticResource TextStyle}"/>
-                <Label Text="{Binding Distance, StringFormat='{0:0.0}m'}"  x:Name="distance" Style="{StaticResource LabelStyle}"/>
+                <Label Text="{Binding Distance, Converter={StaticResource DoubleNullConvertor}, ConverterParameter='0.0m'}"  x:Name="distance" Style="{StaticResource LabelStyle}"/>
                 <Label Text="Tracker will reach you in approx"  Style="{StaticResource TextStyle}"/>
 
-                <Label Text="{Binding Time, StringFormat='{0:0}s'}" x:Name="time" Style="{StaticResource LabelStyle}"/>
+                <Label Text="{Binding Time, Converter={StaticResource DoubleNullConvertor}, ConverterParameter='0.0s'}" x:Name="time" Style="{StaticResource LabelStyle}"/>
                 <StackLayout Orientation="Horizontal" VerticalOptions="CenterAndExpand">
                     <Label Text="Username" IsEnabled="{Binding JoinEnabled}" VerticalOptions="Center"/>
                     <Entry Text="{Binding FugitiveName}" IsEnabled="{Binding JoinEnabled}" WidthRequest="200" VerticalOptions="Center" />

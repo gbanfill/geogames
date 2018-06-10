@@ -38,6 +38,17 @@ namespace GeoGames.ViewModel
             }
         }
 
+        private bool _canStartGame;
+        public bool CanStartGame
+        {
+            get { return _canStartGame; }
+            set
+            {
+                _canStartGame = value;
+                OnPropertyChanged("CanStartGame");
+            }
+        }
+
 		private Plugin.Geolocator.Abstractions.Position _position;
         public Plugin.Geolocator.Abstractions.Position Position
         {
@@ -121,6 +132,10 @@ namespace GeoGames.ViewModel
 					new Fugitive() { ClientId = e.Message.ClientId, Username = e.Message.Username }
 				);
 			}
+            if (ViewModelLocator.TrackerViewModel.FugitiveCollection.Count > 0)
+            {
+                CanStartGame = true;
+            }
 		}
 
 		void Messaging_SurrenderRecieved(object sender, MessageEventArgs<SurrenderMessage> e)

@@ -22,7 +22,7 @@ namespace GeoGames
 			{
 			    ViewModelLocator.TrackerViewModel = new TrackerViewModel();
 			}
-			await Navigation.PushAsync(new TrackerSetup());  
+            await Navigation.PushAsync(new InviteFugitivesPage());  
         }  
 
 		private async void Fugitive_OnClicked(object sender, EventArgs e) {

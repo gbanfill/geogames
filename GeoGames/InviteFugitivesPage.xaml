@@ -17,7 +17,7 @@
                  </ListView.ItemTemplate>
             </ListView>
             <Button Text="Invite"  />
-            <Button Text="Start" Clicked="StartGame_Clicked" />
+            <Button Text="Start" Clicked="StartGame_Clicked" IsEnabled="{Binding CanStartGame}" />
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
