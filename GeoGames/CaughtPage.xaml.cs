@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-
+using GeoGames.ViewModel;
 using Xamarin.Forms;
 
 namespace GeoGames
@@ -10,6 +10,7 @@ namespace GeoGames
         public CaughtPage()
         {
             InitializeComponent();
+            BindingContext = ViewModelLocator.FugitiveViewModel;
         }
 
 		public async void Dismiss_Clicked(object sender, EventArgs eventArgs)

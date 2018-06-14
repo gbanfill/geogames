@@ -24,7 +24,14 @@ namespace GeoGames.ViewModel
 		private TimeSpan _timeToReachFugitive;
 		public TimeSpan TimeToReachFugitive { get { return _timeToReachFugitive; } set { _timeToReachFugitive = value; OnPropertyChanged("TimeToReachFugitive"); }}
 
-		public FugitiveDistanceMessage ToFugitiveDistanceMessage()
+        private bool _isCaught;
+        public bool IsCaught
+        {
+            get { return _isCaught; }
+            set { _isCaught = value; OnPropertyChanged("IsCaught"); }
+        }
+
+        public FugitiveDistanceMessage ToFugitiveDistanceMessage()
 		{
 			// calculate distance and reply
 			FugitiveDistanceMessage msg = new FugitiveDistanceMessage()

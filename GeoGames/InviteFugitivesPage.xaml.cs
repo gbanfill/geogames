@@ -19,6 +19,11 @@ namespace GeoGames
 			ViewModelLocator.GameStartingViewModel = new GameStartingViewModel();
 			ViewModelLocator.GameStartingViewModel.StartingDateTime = DateTime.Now.AddSeconds(10);
 			ViewModelLocator.GameStartingViewModel.StartCountdownTimer();
+            ViewModelLocator.TrackerViewModel.IsComplete = false;
+            foreach (var f in ViewModelLocator.TrackerViewModel.FugitiveCollection)
+            {
+                f.IsCaught = false;
+            }
 			ViewModelLocator.TrackerViewModel.Messaging.SendGameStartsAt(ViewModelLocator.GameStartingViewModel.ToGameStartsMessage());
 			await Navigation.PushModalAsync(new ModelGameCountDown());  
 			await Navigation.PushAsync(new TrackerPage());

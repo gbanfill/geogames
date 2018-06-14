@@ -112,10 +112,12 @@ namespace GeoGames.ViewModel
 					FugitiveDistanceMessage msg = fugitive.ToFugitiveDistanceMessage();
 					ViewModelLocator.TrackerViewModel.Messaging.SendFugitiveDistance(msg);
 				}else{
+                    fugitive.IsCaught = true;
 					CaughtMessage msg = fugitive.ToCaughtMessage();
 
                     ViewModelLocator.TrackerViewModel.Messaging.SendCaughtMessage(msg);
 				}
+                CheckIfGameIsComplete();
 			}
         }
 
@@ -135,6 +137,8 @@ namespace GeoGames.ViewModel
             if (ViewModelLocator.TrackerViewModel.FugitiveCollection.Count > 0)
             {
                 CanStartGame = true;
+            }else{
+                CanStartGame = false;
             }
 		}
 
@@ -146,8 +150,24 @@ namespace GeoGames.ViewModel
 				ViewModelLocator.TrackerViewModel.FugitiveCollection.Remove(fugitive);
 			}
 			UpdateMapPins();
+            CheckIfGameIsComplete();
+            if (ViewModelLocator.TrackerViewModel.FugitiveCollection.Count > 0)
+            {
+                CanStartGame = true;
+            }
+            else
+            {
+                CanStartGame = false;
+            }
 		}
 
+        private void CheckIfGameIsComplete()
+        {
+            if (ViewModelLocator.TrackerViewModel.FugitiveCollection.All(f => f.IsCaught))
+            {
+                IsComplete = true;
+            }
+        }
 
 		private const int FIVE_METERS_PER_SECOND = 5;
 		private const int CAUGHT_DISTANCE = 5;
@@ -173,6 +193,12 @@ namespace GeoGames.ViewModel
 
 				OnPropertyChanged("FugitiveCollection");
 			} }
+
+        private bool _isComplete = false;
+        public bool IsComplete {
+            get { return _isComplete; }
+            set { _isComplete = value; OnPropertyChanged("IsComplete"); }
+        }
 
 		internal void UpdateMapPins()
 		{

@@ -63,6 +63,14 @@ namespace GeoGames.ViewModel
 			set { _fugitiveName = value; OnPropertyChanged("FugitiveName"); }
         }
 
+        public DateTime StartTime { get; set; }
 
+        private TimeSpan _aliveFor;
+        public TimeSpan AliveFor { 
+            get { return _aliveFor; }
+            set { _aliveFor = value; AliveForSeconds = value.TotalSeconds; OnPropertyChanged("AliveFor"); OnPropertyChanged("AliveForSeconds"); } 
+        }
+
+        public double AliveForSeconds { get; set; }
     }
 }

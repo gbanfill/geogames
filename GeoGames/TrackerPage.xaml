@@ -21,6 +21,7 @@
                 HasZoomEnabled="true" Margin="5"
                 MapPins="{Binding PinCollection}"
             />
+            <Label Text="Everyone Caught! well done" HorizontalTextAlignment="Center"  IsVisible="{Binding IsComplete}"/>
          </StackLayout>
     </ContentPage.Content>
 </ContentPage>

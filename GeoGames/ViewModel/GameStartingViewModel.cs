@@ -24,6 +24,8 @@ namespace GeoGames.ViewModel
 
 		public INavigation Navigation { get; internal set; }
 
+        public Action OnStartedAction { get; internal set; }
+
 		public void StartCountdownTimer()
 		{
 			Timer t = new Timer(250);
@@ -33,7 +35,11 @@ namespace GeoGames.ViewModel
 				{
 					t.Stop();
 					Device.BeginInvokeOnMainThread(async () => {
-					        await Navigation.PopModalAsync();
+					    await Navigation.PopModalAsync();
+                        if (OnStartedAction != null)
+                        {
+                            OnStartedAction.Invoke();
+                        }
 					});
 				}
 			};

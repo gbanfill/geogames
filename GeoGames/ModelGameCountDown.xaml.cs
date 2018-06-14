@@ -12,6 +12,7 @@ namespace GeoGames
             InitializeComponent();
 			BindingContext = ViewModelLocator.GameStartingViewModel;
 			ViewModelLocator.GameStartingViewModel.Navigation = Navigation;
+
         }
     }
 }

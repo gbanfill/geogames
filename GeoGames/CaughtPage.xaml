@@ -1,8 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="GeoGames.CaughtPage">
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:convertors="clr-namespace:GeoGames.Convertors" 
+             x:Class="GeoGames.CaughtPage">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+         <convertors:ZeroDoubleConvertor x:Key="DoubleNullConvertor"/>
+        </ResourceDictionary>
+    </ContentPage.Resources>
     <ContentPage.Content>
         <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
-            <Label Text="Caught" />
+            <Label Text="You've been Caught" HorizontalTextAlignment="Center" />
+            <Label Text="You lasted:" HorizontalTextAlignment="Center"/>
+            <Label Text="{Binding AliveForSeconds, Converter={StaticResource DoubleNullConvertor}, ConverterParameter='0.0s'}" HorizontalTextAlignment="Center"/>
             <Button Text="Dismiss" Clicked="Dismiss_Clicked" />
         </StackLayout>
     </ContentPage.Content>

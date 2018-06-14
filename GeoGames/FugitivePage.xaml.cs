@@ -99,16 +99,35 @@ namespace GeoGames
 			ViewModelLocator.GameStartingViewModel = new GameStartingViewModel();
 			ViewModelLocator.GameStartingViewModel.StartingDateTime = e.Message.GameStartsAtTime;
             ViewModelLocator.GameStartingViewModel.StartCountdownTimer();
-			await Navigation.PushModalAsync(new ModelGameCountDown());
-			await StartListeningToLocation();
+
+            ViewModelLocator.GameStartingViewModel.OnStartedAction = async () =>
+            {
+                if (ViewModelLocator.FugitiveViewModel != null)
+                {
+                    ViewModelLocator.FugitiveViewModel.StartTime = DateTime.Now;
+                }
+                await StartListeningToLocation();
+
+            };
+            await Navigation.PushModalAsync(new ModelGameCountDown());
+
+			
 		}
 
 		async void _messaging_CaughtRecieved(object sender, MessageEventArgs<CaughtMessage> e)
         {
 			await StopListeningForLocation();
-			await Navigation.PushModalAsync(new CaughtPage());
-
+            // guard against multiple caughts 
+            if (!isCaught)
+            {
+                isCaught = true;
+                ViewModelLocator.FugitiveViewModel.AliveFor = DateTime.Now - ViewModelLocator.FugitiveViewModel.StartTime;
+                await Navigation.PushModalAsync(new CaughtPage());
+                SendBackButtonPressed();
+            }
         }
+
+        bool isCaught;
 
         void Join_Clicked(object sender, EventArgs eventArgs)
         {

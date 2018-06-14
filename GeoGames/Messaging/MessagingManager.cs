@@ -282,6 +282,7 @@ namespace GeoGames.Messaging
             {
                 string data = System.Web.HttpUtility.UrlEncode(JsonConvert.SerializeObject(message));
                 client.Send(Channel, data);
+                client.Unsubscribe(Channel);
             }
             else
             {
