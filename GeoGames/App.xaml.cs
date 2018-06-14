@@ -1,4 +1,6 @@
 using System;
+using System.Threading.Tasks;
+using GeoGames.ViewModel;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -27,6 +29,16 @@ namespace GeoGames
         protected override void OnResume()
         {
             // Handle when your app resumes
+        }
+
+        public async Task StraightToFugitiveForGameId(string gameid)
+        {
+            if (ViewModelLocator.FugitiveViewModel == null)
+            {
+                ViewModelLocator.FugitiveViewModel = new FugitiveViewModel();
+            }
+            ViewModelLocator.FugitiveViewModel.GameId = gameid;
+            await MainPage.Navigation.PushAsync(new FugitivePage());  
         }
     }
 }

@@ -14,6 +14,7 @@ namespace GeoGames.ViewModel
         {
 			_fugitiveUpdateFrequency = 30;
 			_trackerUpdateFrequency = 30;
+            GameId = DeepLinkingConstants.DEFAULT_GAME;
         }
 
 		private int _fugitiveUpdateFrequency;
@@ -76,6 +77,7 @@ namespace GeoGames.ViewModel
 
 		void _messaging_Connected(object sender, EventArgs e)
         {
+            ViewModelLocator.TrackerViewModel.Messaging.Channel = ViewModelLocator.TrackerViewModel.GameId;
             ViewModelLocator.TrackerViewModel.Messaging.SendJoinGame(new JoinGameMessage());
         }
 
@@ -214,5 +216,12 @@ namespace GeoGames.ViewModel
 				});
 			}
 		}
+
+        private string _gameId;
+        public string GameId 
+        {
+            get { return _gameId; }
+            set { _gameId = value; OnPropertyChanged("GameId"); }
+        }
 	}
 }

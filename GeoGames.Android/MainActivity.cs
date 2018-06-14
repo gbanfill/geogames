@@ -11,10 +11,17 @@ using Plugin.Geolocator.Abstractions;
 using System.Threading.Tasks;
 using Plugin.Geolocator;
 using Mindscape.Raygun4Net;
+using System.Linq;
 
 namespace GeoGames.Droid
 {
     [Activity(Label = "GeoGames", Icon = "@mipmap/icon", Theme = "@style/MainTheme", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
+    [IntentFilter(new[] { Android.Content.Intent.ActionView },
+                  Categories = new[] { Android.Content.Intent.CategoryBrowsable, Android.Content.Intent.CategoryDefault },
+                  DataScheme = DeepLinkingConstants.DataScheme,
+                  DataHost = DeepLinkingConstants.DataHost,
+                  DataPathPrefix = DeepLinkingConstants.DataPathPrefix,
+              AutoVerify = true)]
     public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity
     {
         protected override void OnCreate(Bundle bundle)
@@ -30,15 +37,18 @@ namespace GeoGames.Droid
             global::Xamarin.Forms.Forms.Init(this, bundle);
 			Xamarin.FormsMaps.Init(this, bundle);
 
+            var app = new App();
+            LoadApplication(app);
+
+			CrossCurrentActivity.Current.Activity = this;
+
             var uri = this.Intent.Data;
             if (uri != null)
             {
                 String path = uri.Path;
-                // if we have a path launch properly.
+                var gameId = path.Split('/').Last();
+                app.StraightToFugitiveForGameId(gameId);
             }
-            LoadApplication(new App());
-
-			CrossCurrentActivity.Current.Activity = this;
         }
 
 		public override void OnRequestPermissionsResult(int requestCode, string[] permissions, Android.Content.PM.Permission[] grantResults)

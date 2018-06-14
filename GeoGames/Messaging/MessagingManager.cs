@@ -243,7 +243,6 @@ namespace GeoGames.Messaging
         public bool SendJoinGame(JoinGameMessage message)
         {
             EnsureUsername(message);
-            Channel = "GeoGame-Testing";
 			if (client.IsSubscribed(Channel))
 			{
 				SendHello(new HelloMessage());

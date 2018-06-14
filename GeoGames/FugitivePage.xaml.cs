@@ -135,6 +135,7 @@ namespace GeoGames
 			ViewModelLocator.FugitiveViewModel.SurrenderEnabled = true;
 
 			_messaging.UserName = ViewModelLocator.FugitiveViewModel.FugitiveName;
+            _messaging.Channel = ViewModelLocator.FugitiveViewModel.GameId;
             _messaging.SendJoinGame(new JoinGameMessage());
         }
 

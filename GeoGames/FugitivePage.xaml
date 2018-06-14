@@ -46,7 +46,8 @@
                              Factor=1,
                              Constant=0}"
                          VerticalOptions="Start" HorizontalOptions="CenterAndExpand" Spacing="15">
-             
+
+                <Label Text="{Binding GameId}" HorizontalOptions="Center"/>
                 <Label Text="You are being tracked"  Style="{StaticResource LabelStyle}"/>
                 <Label Text="Distance of tracker to you"  Style="{StaticResource TextStyle}"/>
                 <Label Text="{Binding Distance, Converter={StaticResource DoubleNullConvertor}, ConverterParameter='0.0m'}"  x:Name="distance" Style="{StaticResource LabelStyle}"/>

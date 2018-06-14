@@ -8,6 +8,7 @@
           </ContentPage.Resources>
     <ContentPage.Content>
         <StackLayout HorizontalOptions="Center" VerticalOptions="Center" Margin="5">
+            <Label Text="{Binding GameId}" HorizontalOptions="Center" />
             <Label Text="Current Fugitives:" ></Label>
             <ListView ItemsSource="{Binding FugitiveCollection}">
                 <ListView.ItemTemplate>
@@ -16,7 +17,7 @@
                     </DataTemplate>
                  </ListView.ItemTemplate>
             </ListView>
-            <Button Text="Invite"  />
+            <Button Text="Invite" Clicked="Invite_Clicked" />
             <Button Text="Start" Clicked="StartGame_Clicked" IsEnabled="{Binding CanStartGame}" />
         </StackLayout>
     </ContentPage.Content>

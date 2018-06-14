@@ -7,6 +7,7 @@ namespace GeoGames.ViewModel
     {
         public FugitiveViewModel()
         {
+            GameId = DeepLinkingConstants.DEFAULT_GAME;
         }
 
 		private bool _joinEnabled;
@@ -72,5 +73,11 @@ namespace GeoGames.ViewModel
         }
 
         public double AliveForSeconds { get; set; }
+
+        private string _gameId;
+        public string GameId {
+            get { return _gameId; }
+            set { _gameId = value; OnPropertyChanged("GameId"); }
+        }
     }
 }
