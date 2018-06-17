@@ -113,6 +113,8 @@
     <AndroidResource Include="Resources\mipmap-xxhdpi\launcher_foreground.png" />
     <AndroidResource Include="Resources\mipmap-xxxhdpi\Icon.png" />
     <AndroidResource Include="Resources\mipmap-xxxhdpi\launcher_foreground.png" />
+    <AndroidResource Include="Resources\drawable\Loading.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\Loading.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\drawable\" />

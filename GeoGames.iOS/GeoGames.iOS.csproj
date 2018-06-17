@@ -144,6 +144,9 @@
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon20.png">
       <Visible>false</Visible>
     </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\Loading.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\Loading.imageset\Loading-100x100.png" />
+    <ImageAsset Include="Assets.xcassets\Loading.imageset\Loading-200x200.png" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -173,5 +176,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Realtime.Messaging\" />
+    <Folder Include="Assets.xcassets\Loading.imageset\" />
   </ItemGroup>
 </Project>
