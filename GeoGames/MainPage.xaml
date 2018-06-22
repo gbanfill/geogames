@@ -22,7 +22,7 @@
             >
             <!-- Place new controls here -->
 
-            <Label Text="Welcome to GeoTag!" HorizontalOptions="Center" VerticalOptions="Center" />
+            <Label Text="Welcome to Geogames: Fugitive!" HorizontalOptions="Center" VerticalOptions="Center" />
             <Label Text="Select:" HorizontalOptions="Center" VerticalOptions="Center" />
 
             <Button Text="Tracker" HorizontalOptions="Center" VerticalOptions="Center" Clicked="Tracker_OnClicked"/>
