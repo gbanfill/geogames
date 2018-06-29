@@ -24,6 +24,17 @@ namespace GeoGames.ViewModel
 			set { _surrenderEnabled = value; base.OnPropertyChanged("SurrenderEnabled"); }
         }
 
+        private bool _gameInProgress;
+        public bool GameInProgress{
+            get { return _gameInProgress; }
+            set { _gameInProgress = value; base.OnPropertyChanged("GameInProgress"); }
+        }
+        private bool _waitingForGameToStart;
+        public bool WaitingForGameToStart
+        {
+            get { return _waitingForGameToStart; }
+            set { _waitingForGameToStart = value; base.OnPropertyChanged("WaitingForGameToStart"); }
+        }
 
 		private double _distance;
         public double Distance

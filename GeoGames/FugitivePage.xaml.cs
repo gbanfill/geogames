@@ -96,12 +96,14 @@ namespace GeoGames
 
 		async void _messaging_GameStartsAtRecieved(object sender, MessageEventArgs<GameStartsAtMessage> e)
 		{
+            ViewModelLocator.FugitiveViewModel.WaitingForGameToStart = false;
 			ViewModelLocator.GameStartingViewModel = new GameStartingViewModel();
 			ViewModelLocator.GameStartingViewModel.StartingDateTime = e.Message.GameStartsAtTime;
             ViewModelLocator.GameStartingViewModel.StartCountdownTimer();
 
             ViewModelLocator.GameStartingViewModel.OnStartedAction = async () =>
             {
+                ViewModelLocator.FugitiveViewModel.GameInProgress = true;
                 if (ViewModelLocator.FugitiveViewModel != null)
                 {
                     ViewModelLocator.FugitiveViewModel.StartTime = DateTime.Now;
@@ -132,7 +134,8 @@ namespace GeoGames
         void Join_Clicked(object sender, EventArgs eventArgs)
         {
 			ViewModelLocator.FugitiveViewModel.JoinEnabled = false;
-			ViewModelLocator.FugitiveViewModel.SurrenderEnabled = true;
+			ViewModelLocator.FugitiveViewModel.SurrenderEnabled = false;
+            ViewModelLocator.FugitiveViewModel.WaitingForGameToStart = true;
 
 			_messaging.UserName = ViewModelLocator.FugitiveViewModel.FugitiveName;
             _messaging.Channel = ViewModelLocator.FugitiveViewModel.GameId;
@@ -143,6 +146,7 @@ namespace GeoGames
         {
 			ViewModelLocator.FugitiveViewModel.JoinEnabled = true;
 			ViewModelLocator.FugitiveViewModel.SurrenderEnabled = false;
+            ViewModelLocator.FugitiveViewModel.GameInProgress = false;
             _messaging.SendSurrender(new SurrenderMessage());
 
             await StopListeningForLocation();

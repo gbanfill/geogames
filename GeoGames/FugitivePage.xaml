@@ -28,6 +28,20 @@
     </ContentPage.Resources>
     <ContentPage.Content>
         <RelativeLayout  VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+          <StackLayout  RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent,
+                             Property=Height,
+                             Factor=0,
+                             Constant=0}"
+                         RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent,
+                             Property=Width,
+                             Factor=0,
+                             Constant=0}"
+                          RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,
+                             Property=Width,
+                             Factor=1,
+                             Constant=0}">
+                 <Label Text="{Binding GameId}" HorizontalOptions="Center"/>
+           </StackLayout>
             <StackLayout 
                         RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent,
                              Property=Height,
@@ -45,23 +59,31 @@
                              Property=Width,
                              Factor=1,
                              Constant=0}"
-                         VerticalOptions="Start" HorizontalOptions="CenterAndExpand" Spacing="15">
+                         VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"  Spacing="15">
 
-                <Label Text="{Binding GameId}" HorizontalOptions="Center"/>
-                <Label Text="You are being tracked"  Style="{StaticResource LabelStyle}"/>
-                <Label Text="Distance of tracker to you"  Style="{StaticResource TextStyle}"/>
-                <Label Text="{Binding Distance, Converter={StaticResource DoubleNullConvertor}, ConverterParameter='0.0m'}"  x:Name="distance" Style="{StaticResource LabelStyle}"/>
-                <Label Text="Tracker will reach you in approx"  Style="{StaticResource TextStyle}"/>
-
-                <Label Text="{Binding Time, Converter={StaticResource DoubleNullConvertor}, ConverterParameter='0.0s'}" x:Name="time" Style="{StaticResource LabelStyle}"/>
-                <StackLayout Orientation="Horizontal" VerticalOptions="CenterAndExpand">
-                    <Label Text="Username" IsEnabled="{Binding JoinEnabled}" VerticalOptions="Center"/>
-                    <Entry Text="{Binding FugitiveName}" IsEnabled="{Binding JoinEnabled}" WidthRequest="200" VerticalOptions="Center" />
+               
+                   
+                  <StackLayout IsVisible="{Binding WaitingForGameToStart}" Padding="15">
+                    <Label Text="Waiting for game to start..."  Style="{StaticResource LabelStyle}"/>
+               </StackLayout>
+                <StackLayout IsVisible="{Binding GameInProgress}">
+                    <Label Text="You are being tracked"  Style="{StaticResource LabelStyle}"/>
+                    <Label Text="Distance of tracker to you"  Style="{StaticResource TextStyle}"/>
+                    <Label Text="{Binding Distance, Converter={StaticResource DoubleNullConvertor}, ConverterParameter='0.0m'}"  x:Name="distance" Style="{StaticResource LabelStyle}"/>
+                    <Label Text="Tracker will reach you in approx"  Style="{StaticResource TextStyle}"/>
+                    <Label Text="{Binding Time, Converter={StaticResource DoubleNullConvertor}, ConverterParameter='0.0s'}" x:Name="time" Style="{StaticResource LabelStyle}"/>
+                    
+                    <Button x:Name="surrender" Text="Surrender" Clicked="Surrender_Clicked" IsEnabled="{Binding SurrenderEnabled}" />
                 </StackLayout>
-                <Button x:Name="join" Text="Join" Clicked="Join_Clicked" IsEnabled="{Binding JoinEnabled}" />
-                <Button x:Name="surrender" Text="Surrender" Clicked="Surrender_Clicked" IsEnabled="{Binding SurrenderEnabled}" />
-                <Button  Text="Send location" Clicked="SendNow_Clicked" IsEnabled="{Binding SurrenderEnabled}" />
-                <Label/>
+                
+                <StackLayout IsVisible="{Binding JoinEnabled}">
+                    <StackLayout Orientation="Horizontal" VerticalOptions="CenterAndExpand">
+                        <Label Text="Username" IsEnabled="{Binding JoinEnabled}" VerticalOptions="Center"/>
+                        <Entry Text="{Binding FugitiveName}" IsEnabled="{Binding JoinEnabled}" WidthRequest="200" VerticalOptions="Center" />
+                    </StackLayout>
+                    <Button x:Name="join" Text="Join" Clicked="Join_Clicked" IsEnabled="{Binding JoinEnabled}" />
+                </StackLayout>
+
             </StackLayout>
             <StackLayout  RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent,
                              Property=Height,

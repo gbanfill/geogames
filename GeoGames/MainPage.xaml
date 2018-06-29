@@ -1,5 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ContentPage  xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:local="clr-namespace:GeoGames" x:Class="GeoGames.MainPage">
+    <ContentPage.Resources>
+         <ResourceDictionary>
+             <Style x:Key="NormalText" TargetType="Label">
+                <Setter Property="FontSize" Value="28"/>
+                 <Setter Property="TextColor" Value="Red"/>
+                <Setter Property="HorizontalOptions" Value="Center" />
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
     <RelativeLayout  VerticalOptions="Fill" HorizontalOptions="Fill">
         
         <StackLayout  VerticalOptions="Center"
@@ -22,11 +31,10 @@
             >
             <!-- Place new controls here -->
 
-            <Label Text="Welcome to Geogames: Fugitive!" HorizontalOptions="Center" VerticalOptions="Center" />
-            <Label Text="Select:" HorizontalOptions="Center" VerticalOptions="Center" />
-
-            <Button Text="Tracker" HorizontalOptions="Center" VerticalOptions="Center" Clicked="Tracker_OnClicked"/>
-            <Button Text="Fugitive" HorizontalOptions="Center" VerticalOptions="Center" Clicked="Fugitive_OnClicked"/>
+            <Label Text="Welcome to Geogames: Fugitive!" HorizontalOptions="Center" HorizontalTextAlignment="Center" VerticalOptions="Center" FontSize="28" />
+          
+            <Button Text="Tracker" HorizontalOptions="Center" VerticalOptions="Center" Clicked="Tracker_OnClicked" FontSize="28"/>
+            <Button Text="Fugitive" HorizontalOptions="Center" VerticalOptions="Center" Clicked="Fugitive_OnClicked" FontSize="28"/>
         </StackLayout>
          <StackLayout  RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent,
                              Property=Height,
