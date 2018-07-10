@@ -14,7 +14,10 @@ namespace GeoGames
         {
             InitializeComponent();
 			BindingContext = ViewModelLocator.TrackerViewModel;
-			ViewModelLocator.TrackerViewModel.CreateMessaging("tracker");
+            if (!DesignMode.IsDesignModeEnabled)
+            {
+                ViewModelLocator.TrackerViewModel.CreateMessaging("tracker");
+            }
         }
 
 		async void StartGame_Clicked(object sender, System.EventArgs e)

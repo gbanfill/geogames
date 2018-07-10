@@ -9,16 +9,19 @@
     <ContentPage.Content>
         <StackLayout HorizontalOptions="Center" VerticalOptions="Center" Margin="5">
             <Label Text="{Binding GameId}" HorizontalOptions="Center" />
-            <Label Text="Current Fugitives:" ></Label>
+            <Label Text="Current Fugitives:" FontSize="28"></Label>
             <ListView ItemsSource="{Binding FugitiveCollection}">
                 <ListView.ItemTemplate>
                     <DataTemplate>
-                        <TextCell Text="{Binding Username}" />
+                        <ViewCell>
+                            <BoxView Margin="10,0,10,0" WidthRequest="40" HeightRequest="40" BackgroundColor="Red" />
+                            <Label Margin="5,0,5,0" Text="{Binding Username}" FontSize="24" />
+                        </ViewCell>
                     </DataTemplate>
                  </ListView.ItemTemplate>
             </ListView>
-            <Button Text="Invite" Clicked="Invite_Clicked" />
-            <Button Text="Start" Clicked="StartGame_Clicked" IsEnabled="{Binding CanStartGame}" />
+            <Button Text="Invite" Clicked="Invite_Clicked" FontSize="24" />
+            <Button Text="Start" Clicked="StartGame_Clicked" IsEnabled="{Binding CanStartGame}" FontSize="24"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

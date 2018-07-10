@@ -31,7 +31,7 @@
                              Constant=0}"
             >
          
-            <Label Text="Choose a mode:" HorizontalOptions="Center" HorizontalTextAlignment="Center" VerticalOptions="Center" FontSize="28" />
+            <Label Text="Choose a mode:" Margin="0,0,0,20" HorizontalOptions="Center" HorizontalTextAlignment="Center" VerticalOptions="Center" FontSize="28" />
 
             <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
                 <BoxView BackgroundColor="Gray" WidthRequest="1" HeightRequest="87" />
