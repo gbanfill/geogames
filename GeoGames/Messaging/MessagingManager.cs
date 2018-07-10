@@ -46,6 +46,16 @@ namespace GeoGames.Messaging
             client.Connect(applicationKey, authenticationToken);
         }
 
+        public void Disconnect()
+        {
+            client.Disconnect();
+
+            client.OnConnected -= ortc_OnConnected;
+            client.OnDisconnected -= ortc_OnDiconnected;
+            client.OnSubscribed -= ortc_OnSubscribed;
+            client.OnException -= ortc_OnException;
+        }
+
         private void ortc_OnConnected(object sender)
         {
             RaiseConnected();
@@ -152,6 +162,7 @@ namespace GeoGames.Messaging
         }
         private void ortc_OnSubscribed(object sender, string channel)
         {
+            Channel = channel;
 			SendHello(new HelloMessage());
         }
 

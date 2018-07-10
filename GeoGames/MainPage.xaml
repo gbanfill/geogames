@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ContentPage  xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:local="clr-namespace:GeoGames" x:Class="GeoGames.MainPage">
+<ContentPage  xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:local="clr-namespace:GeoGames" x:Class="GeoGames.MainPage"
+              Title="Geogames: Fugitive">
     <ContentPage.Resources>
          <ResourceDictionary>
              <Style x:Key="NormalText" TargetType="Label">
@@ -29,13 +30,34 @@
                              Factor=1,
                              Constant=0}"
             >
-            <!-- Place new controls here -->
+         
+            <Label Text="Choose a mode:" HorizontalOptions="Center" HorizontalTextAlignment="Center" VerticalOptions="Center" FontSize="28" />
 
-            <Label Text="Welcome to Geogames: Fugitive!" HorizontalOptions="Center" HorizontalTextAlignment="Center" VerticalOptions="Center" FontSize="28" />
-          
-            <Button Text="Tracker" HorizontalOptions="Center" VerticalOptions="Center" Clicked="Tracker_OnClicked" FontSize="28"/>
-            <Button Text="Fugitive" HorizontalOptions="Center" VerticalOptions="Center" Clicked="Fugitive_OnClicked" FontSize="28"/>
-        </StackLayout>
+            <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+                <BoxView BackgroundColor="Gray" WidthRequest="1" HeightRequest="87" />
+                <StackLayout Orientation="Vertical" WidthRequest="130">
+                    <Image Source="Tracker.png" WidthRequest="100" HeightRequest="87" >
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="Tracker_OnClicked" NumberOfTapsRequired="1" />
+                       </Image.GestureRecognizers>
+                     </Image>
+                    <Button Text="Tracker" HorizontalOptions="Center" VerticalOptions="Center" Clicked="Tracker_OnClicked" FontSize="24"/>
+                </StackLayout>
+                <BoxView BackgroundColor="Gray" WidthRequest="1" HeightRequest="87" />
+                <BoxView WidthRequest="5" />
+                <BoxView BackgroundColor="Gray" WidthRequest="1" HeightRequest="87" />
+                <StackLayout Orientation="Vertical" WidthRequest="130">
+                    <Image Source="Fugitive.png" WidthRequest="100" HeightRequest="87"  >
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="Fugitive_OnClicked" NumberOfTapsRequired="1" />
+                       </Image.GestureRecognizers>
+                        </Image>
+                    <Button Text="Fugitive" HorizontalOptions="Center" VerticalOptions="Center" Clicked="Fugitive_OnClicked" FontSize="24"/>
+                </StackLayout>
+                <BoxView BackgroundColor="Gray" WidthRequest="1" HeightRequest="87" />
+             </StackLayout>
+                
+            </StackLayout>
          <StackLayout  RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent,
                              Property=Height,
                              Factor=1,

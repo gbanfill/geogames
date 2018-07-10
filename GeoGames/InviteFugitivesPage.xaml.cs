@@ -51,5 +51,10 @@ namespace GeoGames
             sharemessage.Text = message;
             await CrossShare.Current.Share(sharemessage);
         }
+        protected override bool OnBackButtonPressed()
+        {
+            ViewModelLocator.TrackerViewModel.CloseMessaging();
+            return base.OnBackButtonPressed();
+        }
     }
 }

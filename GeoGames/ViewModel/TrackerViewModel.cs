@@ -75,6 +75,19 @@ namespace GeoGames.ViewModel
 			//TODO: remember to dispose of these
 		}
 
+        public void CloseMessaging()
+        {
+            if (Messaging != null)
+            {
+                Messaging.Disconnect();
+                Messaging.Connected -= _messaging_Connected;
+                Messaging.FugutiveLocationRecieved -= _messaging_FugutiveLocationRecieved;
+                Messaging.HelloRecieved -= Messaging_HelloRecieved;
+                Messaging.SurrenderRecieved -= Messaging_SurrenderRecieved;
+                Messaging = null;
+            }
+        }
+
 		void _messaging_Connected(object sender, EventArgs e)
         {
             ViewModelLocator.TrackerViewModel.Messaging.Channel = ViewModelLocator.TrackerViewModel.GameId;

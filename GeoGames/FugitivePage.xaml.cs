@@ -31,12 +31,20 @@ namespace GeoGames
 		protected override async void OnDisappearing()
 		{
 			base.OnDisappearing();
+
+           
             _messaging.FugutiveDistanceRecieved -= _messaging_FugutiveDistanceRecieved;
 			_messaging.GameStartsAtRecieved -= _messaging_GameStartsAtRecieved;
             _messaging.Connected -= _messaging_Connected;
 			await StopListeningForLocation();
 		}
 
+        protected override bool OnBackButtonPressed()
+        {
+            _messaging.SendSurrender(new SurrenderMessage());
+            _messaging.Disconnect();
+            return base.OnBackButtonPressed();
+        }
         void _messaging_Connected(object sender, EventArgs eventArgs)
         {
 			ViewModelLocator.FugitiveViewModel.JoinEnabled = true;         
@@ -164,7 +172,8 @@ namespace GeoGames
             _messaging.SendFugitiveLocation(message);
 		}
 
+       
 
 
-	}
+    }
 }

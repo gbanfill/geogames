@@ -147,6 +147,12 @@
     <ImageAsset Include="Assets.xcassets\Loading.imageset\Contents.json" />
     <ImageAsset Include="Assets.xcassets\Loading.imageset\Loading-100x100.png" />
     <ImageAsset Include="Assets.xcassets\Loading.imageset\Loading-200x200.png" />
+    <ImageAsset Include="Assets.xcassets\Tracker.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\Fugitive.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\Fugitive.imageset\Fugitive.png" />
+    <ImageAsset Include="Assets.xcassets\Fugitive.imageset\Fugitive%402x.png" />
+    <ImageAsset Include="Assets.xcassets\Tracker.imageset\Tracker%402x.png" />
+    <ImageAsset Include="Assets.xcassets\Tracker.imageset\Fugitive.png" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -177,5 +183,7 @@
   <ItemGroup>
     <Folder Include="Realtime.Messaging\" />
     <Folder Include="Assets.xcassets\Loading.imageset\" />
+    <Folder Include="Assets.xcassets\Tracker.imageset\" />
+    <Folder Include="Assets.xcassets\Fugitive.imageset\" />
   </ItemGroup>
 </Project>

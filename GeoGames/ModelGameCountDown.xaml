@@ -13,7 +13,7 @@
         <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="Center">
             <Label Text="Game Starting in:"  />
             <Image Source="Loading.png" x:Name="loadingImage"/>
-            <Label Text="{Binding Path=SecondsToStart}" HorizontalOptions="Center" TranslationY="-74" Style="{StaticResource TextStyle}" />
+            <Label Text="{Binding Path=SecondsToStart}" HorizontalOptions="Center" TranslationY="-78" Style="{StaticResource TextStyle}" />
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
