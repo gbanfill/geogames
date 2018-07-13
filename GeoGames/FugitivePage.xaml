@@ -5,7 +5,8 @@
     xmlns:convertors="clr-namespace:GeoGames.Convertors" 
     xmlns:local="clr-namespace:GeoGames"
     x:Class="GeoGames.FugitivePage"
-    Title="Fugitive">
+    Title="Fugitive"
+    EnableBackButtonOverride="true">
     <ContentPage.Resources>
         <ResourceDictionary>
             <Style x:Key="LabelStyle" TargetType="Label">

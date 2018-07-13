@@ -99,6 +99,7 @@
     <Compile Include="Realtime.Messaging\PushNotificationImplementation.cs" />
     <Compile Include="Realtime.Messaging\Settings.cs" />
     <Compile Include="Realtime.Messaging\WebsocketConnection.cs" />
+    <Compile Include="CustomBackActionPageRenderer.cs" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="Resources\LaunchScreen.storyboard" />
@@ -185,5 +186,8 @@
     <Folder Include="Assets.xcassets\Loading.imageset\" />
     <Folder Include="Assets.xcassets\Tracker.imageset\" />
     <Folder Include="Assets.xcassets\Fugitive.imageset\" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\iosbackarrow%402x.png" />
   </ItemGroup>
 </Project>

@@ -4,7 +4,8 @@
               xmlns:local="clr-namespace:GeoGames"
              x:Class="GeoGames.InviteFugitivesPage"
              xmlns:localConvertors="GeoGames.Convertors"
-             Title="Invite Fugitives">
+             Title="Invite Fugitives"
+             EnableBackButtonOverride="true">
     <ContentPage.Resources>
           </ContentPage.Resources>
     <ContentPage.Content>
