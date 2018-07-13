@@ -13,15 +13,15 @@ namespace GeoGames.Maps
 
         public static readonly BindableProperty MapPinsProperty = BindableProperty.Create(
                  nameof(Pins),
-                 typeof(ObservableCollection<Pin>),
+            typeof(ObservableCollection<ColouredMapPin>),
                  typeof(BindableMap),
-                 new ObservableCollection<Pin>(),
+            new ObservableCollection<ColouredMapPin>(),
                  propertyChanged: (b, o, n) =>
                  {
                      var bindable = (BindableMap)b;
                      bindable.Pins.Clear();
 
-                     var collection = (ObservableCollection<Pin>)n;
+            var collection = (ObservableCollection<ColouredMapPin>)n;
                      foreach (var item in collection)
                          bindable.Pins.Add(item);
                      collection.CollectionChanged += (sender, e) =>
@@ -47,7 +47,10 @@ namespace GeoGames.Maps
                          });
                      };
                  });
-        public IList<Pin> MapPins { get; set; }
+        public IList<ColouredMapPin> MapPins { 
+            get { return (IList<ColouredMapPin>)GetValue(MapPinsProperty); } 
+            set { SetValue(MapPinsProperty, value); }
+        }
 
         public static readonly BindableProperty MapPositionProperty = BindableProperty.Create(
                  nameof(MapPosition),

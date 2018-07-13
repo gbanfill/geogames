@@ -5,6 +5,7 @@ using Xamarin.Forms.Maps;
 using System.Linq;
 using Plugin.Geolocator.Abstractions;
 using GeoGames.Extensions;
+using GeoGames.Maps;
 
 namespace GeoGames.ViewModel
 {
@@ -111,6 +112,7 @@ namespace GeoGames.ViewModel
                     ClientId = e.Message.ClientId,
                     Username = e.Message.Username,
                     Position = new Xamarin.Forms.Maps.Position(e.Message.Latitide, e.Message.Longitude),
+                    Colour = AssignColour()
                 };
                 ViewModelLocator.TrackerViewModel.FugitiveCollection.Add(fugitive);
             }
@@ -136,6 +138,13 @@ namespace GeoGames.ViewModel
 			}
         }
 
+        Random random = new Random();
+
+        private string AssignColour()
+        {
+            var color = String.Format("#{0:X6}", random.Next(0x1000000));
+            return color;
+        }
 		void Messaging_JoinGameRecieved(object sender, MessageEventArgs<JoinGameMessage> e)
 		{
 		}
@@ -146,7 +155,7 @@ namespace GeoGames.ViewModel
 			if (fugitive == null)
 			{
 				ViewModelLocator.TrackerViewModel.FugitiveCollection.Add(
-					new Fugitive() { ClientId = e.Message.ClientId, Username = e.Message.Username }
+                    new Fugitive() { ClientId = e.Message.ClientId, Username = e.Message.Username, Colour = AssignColour() }
 				);
 			}
             if (ViewModelLocator.TrackerViewModel.FugitiveCollection.Count > 0)
@@ -189,9 +198,9 @@ namespace GeoGames.ViewModel
 
 		public MessagingManager Messaging { get; set; }
 
-		private ObservableCollection<Pin> _pinCollection = new ObservableCollection<Pin>();
+        private ObservableCollection<ColouredMapPin> _pinCollection = new ObservableCollection<ColouredMapPin>();
         
-		public ObservableCollection<Pin> PinCollection { 
+        public ObservableCollection<ColouredMapPin> PinCollection { 
 			get { 
 				return _pinCollection; 
                 } 
@@ -220,11 +229,12 @@ namespace GeoGames.ViewModel
 			PinCollection.Clear();
 			foreach(var f in FugitiveCollection)
 			{
-				PinCollection.Add(new Pin()
+                PinCollection.Add(new ColouredMapPin()
 				{
 					Position = f.Position,
 					Label = f.Username,
-					Type = PinType.Generic
+					Type = PinType.Generic,
+                    Colour = f.Colour
 
 				});
 			}

@@ -17,6 +17,8 @@ namespace GeoGames
             if (!DesignMode.IsDesignModeEnabled)
             {
                 ViewModelLocator.TrackerViewModel.CreateMessaging("tracker");
+            }else{
+                ViewModelLocator.TrackerViewModel.FugitiveCollection.Add(new Fugitive() { Username = "TEST", ClientId = "1234" });
             }
 
             // custom back action will be called when Backbutton pressed (android) or back navigation button at top of page pressed (iOS and android)

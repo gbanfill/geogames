@@ -15,6 +15,9 @@ namespace GeoGames.ViewModel
 		private string _username;
 		public string Username { get { return _username; } set { _username = value; OnPropertyChanged("Username"); } }
 
+        private string _colour;
+        public string Colour { get { return _colour; } set { _colour = value; OnPropertyChanged("Colour"); } }
+
 		private Xamarin.Forms.Maps.Position _position;
 		public Xamarin.Forms.Maps.Position Position { get { return _position; } set { _position = value; OnPropertyChanged("Position"); } }
 

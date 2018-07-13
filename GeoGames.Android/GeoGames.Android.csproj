@@ -86,6 +86,7 @@
     <Compile Include="Realtime.Messaging.Android\RealtimeConnection.cs" />
     <Compile Include="Realtime.Messaging.Android\RegistrationIntentService.cs" />
     <Compile Include="Realtime.Messaging.Android\Settings.cs" />
+    <Compile Include="BindableMapRenderer.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
@@ -116,6 +117,10 @@
     <AndroidResource Include="Resources\drawable\Fugitive.png" />
     <AndroidResource Include="Resources\drawable-hdpi\Fugitive.png" />
     <AndroidResource Include="Resources\drawable-xhdpi\Fugitive.png" />
+    <AndroidResource Include="Resources\layout\MapInfoWindow.axml" />
+    <AndroidResource Include="Resources\drawable\pin.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\pin.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\pin.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\drawable\" />

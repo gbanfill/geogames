@@ -16,8 +16,10 @@
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
-                            <BoxView Margin="10,0,10,0" WidthRequest="40" HeightRequest="40" BackgroundColor="Red" />
-                            <Label Margin="5,0,5,0" Text="{Binding Username}" FontSize="24" />
+                            <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand" >
+                                <BoxView Margin="10,0,10,0" WidthRequest="20" HeightRequest="20" BackgroundColor="{Binding Colour}" />
+                                <Label Margin="10,0,10,0" Text="{Binding Username}" FontSize="24" />
+                             </StackLayout>
                         </ViewCell>
                     </DataTemplate>
                  </ListView.ItemTemplate>

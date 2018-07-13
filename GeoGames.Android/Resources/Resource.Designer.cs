@@ -2937,11 +2937,11 @@ namespace GeoGames.Droid
 			// aapt resource value: 0x7f02011f
 			public const int notification_icon_background = 2130837791;
 			
-			// aapt resource value: 0x7f020123
-			public const int notification_template_icon_bg = 2130837795;
-			
 			// aapt resource value: 0x7f020124
-			public const int notification_template_icon_low_bg = 2130837796;
+			public const int notification_template_icon_bg = 2130837796;
+			
+			// aapt resource value: 0x7f020125
+			public const int notification_template_icon_low_bg = 2130837797;
 			
 			// aapt resource value: 0x7f020120
 			public const int notification_tile_bg = 2130837792;
@@ -2950,7 +2950,10 @@ namespace GeoGames.Droid
 			public const int notify_panel_notification_icon_bg = 2130837793;
 			
 			// aapt resource value: 0x7f020122
-			public const int Tracker = 2130837794;
+			public const int pin = 2130837794;
+			
+			// aapt resource value: 0x7f020123
+			public const int Tracker = 2130837795;
 			
 			static Drawable()
 			{
@@ -2965,8 +2968,11 @@ namespace GeoGames.Droid
 		public partial class Id
 		{
 			
-			// aapt resource value: 0x7f0c00a8
-			public const int action0 = 2131493032;
+			// aapt resource value: 0x7f0c008b
+			public const int InfoWindowTitle = 2131493003;
+			
+			// aapt resource value: 0x7f0c00a9
+			public const int action0 = 2131493033;
 			
 			// aapt resource value: 0x7f0c006e
 			public const int action_bar = 2131492974;
@@ -2989,17 +2995,17 @@ namespace GeoGames.Droid
 			// aapt resource value: 0x7f0c004b
 			public const int action_bar_title = 2131492939;
 			
-			// aapt resource value: 0x7f0c00a5
-			public const int action_container = 2131493029;
+			// aapt resource value: 0x7f0c00a6
+			public const int action_container = 2131493030;
 			
 			// aapt resource value: 0x7f0c006f
 			public const int action_context_bar = 2131492975;
 			
-			// aapt resource value: 0x7f0c00ac
-			public const int action_divider = 2131493036;
+			// aapt resource value: 0x7f0c00ad
+			public const int action_divider = 2131493037;
 			
-			// aapt resource value: 0x7f0c00a6
-			public const int action_image = 2131493030;
+			// aapt resource value: 0x7f0c00a7
+			public const int action_image = 2131493031;
 			
 			// aapt resource value: 0x7f0c0003
 			public const int action_menu_divider = 2131492867;
@@ -3016,11 +3022,11 @@ namespace GeoGames.Droid
 			// aapt resource value: 0x7f0c004d
 			public const int action_mode_close_button = 2131492941;
 			
-			// aapt resource value: 0x7f0c00a7
-			public const int action_text = 2131493031;
+			// aapt resource value: 0x7f0c00a8
+			public const int action_text = 2131493032;
 			
-			// aapt resource value: 0x7f0c00b5
-			public const int actions = 2131493045;
+			// aapt resource value: 0x7f0c00b6
+			public const int actions = 2131493046;
 			
 			// aapt resource value: 0x7f0c004e
 			public const int activity_chooser_view_content = 2131492942;
@@ -3055,8 +3061,8 @@ namespace GeoGames.Droid
 			// aapt resource value: 0x7f0c0055
 			public const int buttonPanel = 2131492949;
 			
-			// aapt resource value: 0x7f0c00a9
-			public const int cancel_action = 2131493033;
+			// aapt resource value: 0x7f0c00aa
+			public const int cancel_action = 2131493034;
 			
 			// aapt resource value: 0x7f0c003a
 			public const int center = 2131492922;
@@ -3070,8 +3076,8 @@ namespace GeoGames.Droid
 			// aapt resource value: 0x7f0c0065
 			public const int checkbox = 2131492965;
 			
-			// aapt resource value: 0x7f0c00b1
-			public const int chronometer = 2131493041;
+			// aapt resource value: 0x7f0c00b2
+			public const int chronometer = 2131493042;
 			
 			// aapt resource value: 0x7f0c0043
 			public const int clip_horizontal = 2131492931;
@@ -3130,8 +3136,8 @@ namespace GeoGames.Droid
 			// aapt resource value: 0x7f0c002c
 			public const int end = 2131492908;
 			
-			// aapt resource value: 0x7f0c00bb
-			public const int end_padder = 2131493051;
+			// aapt resource value: 0x7f0c00bc
+			public const int end_padder = 2131493052;
 			
 			// aapt resource value: 0x7f0c0035
 			public const int enterAlways = 2131492917;
@@ -3172,8 +3178,8 @@ namespace GeoGames.Droid
 			// aapt resource value: 0x7f0c0053
 			public const int icon = 2131492947;
 			
-			// aapt resource value: 0x7f0c00b6
-			public const int icon_group = 2131493046;
+			// aapt resource value: 0x7f0c00b7
+			public const int icon_group = 2131493047;
 			
 			// aapt resource value: 0x7f0c0016
 			public const int icon_only = 2131492886;
@@ -3184,8 +3190,8 @@ namespace GeoGames.Droid
 			// aapt resource value: 0x7f0c0050
 			public const int image = 2131492944;
 			
-			// aapt resource value: 0x7f0c00b2
-			public const int info = 2131493042;
+			// aapt resource value: 0x7f0c00b3
+			public const int info = 2131493043;
 			
 			// aapt resource value: 0x7f0c0000
 			public const int item_touch_helper_previous_elevation = 2131492864;
@@ -3199,11 +3205,11 @@ namespace GeoGames.Droid
 			// aapt resource value: 0x7f0c001b
 			public const int light = 2131492891;
 			
-			// aapt resource value: 0x7f0c00b7
-			public const int line1 = 2131493047;
+			// aapt resource value: 0x7f0c00b8
+			public const int line1 = 2131493048;
 			
-			// aapt resource value: 0x7f0c00b9
-			public const int line3 = 2131493049;
+			// aapt resource value: 0x7f0c00ba
+			public const int line3 = 2131493050;
 			
 			// aapt resource value: 0x7f0c001c
 			public const int listMode = 2131492892;
@@ -3211,11 +3217,11 @@ namespace GeoGames.Droid
 			// aapt resource value: 0x7f0c0052
 			public const int list_item = 2131492946;
 			
-			// aapt resource value: 0x7f0c00bf
-			public const int masked = 2131493055;
+			// aapt resource value: 0x7f0c00c0
+			public const int masked = 2131493056;
 			
-			// aapt resource value: 0x7f0c00ab
-			public const int media_actions = 2131493035;
+			// aapt resource value: 0x7f0c00ac
+			public const int media_actions = 2131493036;
 			
 			// aapt resource value: 0x7f0c002d
 			public const int middle = 2131492909;
@@ -3223,80 +3229,80 @@ namespace GeoGames.Droid
 			// aapt resource value: 0x7f0c0048
 			public const int mini = 2131492936;
 			
-			// aapt resource value: 0x7f0c0097
-			public const int mr_art = 2131493015;
-			
-			// aapt resource value: 0x7f0c008c
-			public const int mr_chooser_list = 2131493004;
-			
-			// aapt resource value: 0x7f0c008f
-			public const int mr_chooser_route_desc = 2131493007;
+			// aapt resource value: 0x7f0c0098
+			public const int mr_art = 2131493016;
 			
 			// aapt resource value: 0x7f0c008d
-			public const int mr_chooser_route_icon = 2131493005;
-			
-			// aapt resource value: 0x7f0c008e
-			public const int mr_chooser_route_name = 2131493006;
-			
-			// aapt resource value: 0x7f0c008b
-			public const int mr_chooser_title = 2131493003;
-			
-			// aapt resource value: 0x7f0c0094
-			public const int mr_close = 2131493012;
-			
-			// aapt resource value: 0x7f0c009a
-			public const int mr_control_divider = 2131493018;
-			
-			// aapt resource value: 0x7f0c00a0
-			public const int mr_control_playback_ctrl = 2131493024;
-			
-			// aapt resource value: 0x7f0c00a3
-			public const int mr_control_subtitle = 2131493027;
-			
-			// aapt resource value: 0x7f0c00a2
-			public const int mr_control_title = 2131493026;
-			
-			// aapt resource value: 0x7f0c00a1
-			public const int mr_control_title_container = 2131493025;
-			
-			// aapt resource value: 0x7f0c0095
-			public const int mr_custom_control = 2131493013;
-			
-			// aapt resource value: 0x7f0c0096
-			public const int mr_default_control = 2131493014;
-			
-			// aapt resource value: 0x7f0c0091
-			public const int mr_dialog_area = 2131493009;
+			public const int mr_chooser_list = 2131493005;
 			
 			// aapt resource value: 0x7f0c0090
-			public const int mr_expandable_area = 2131493008;
+			public const int mr_chooser_route_desc = 2131493008;
 			
-			// aapt resource value: 0x7f0c00a4
-			public const int mr_group_expand_collapse = 2131493028;
+			// aapt resource value: 0x7f0c008e
+			public const int mr_chooser_route_icon = 2131493006;
 			
-			// aapt resource value: 0x7f0c0098
-			public const int mr_media_main_control = 2131493016;
+			// aapt resource value: 0x7f0c008f
+			public const int mr_chooser_route_name = 2131493007;
 			
-			// aapt resource value: 0x7f0c0093
-			public const int mr_name = 2131493011;
+			// aapt resource value: 0x7f0c008c
+			public const int mr_chooser_title = 2131493004;
 			
-			// aapt resource value: 0x7f0c0099
-			public const int mr_playback_control = 2131493017;
-			
-			// aapt resource value: 0x7f0c0092
-			public const int mr_title_bar = 2131493010;
+			// aapt resource value: 0x7f0c0095
+			public const int mr_close = 2131493013;
 			
 			// aapt resource value: 0x7f0c009b
-			public const int mr_volume_control = 2131493019;
+			public const int mr_control_divider = 2131493019;
+			
+			// aapt resource value: 0x7f0c00a1
+			public const int mr_control_playback_ctrl = 2131493025;
+			
+			// aapt resource value: 0x7f0c00a4
+			public const int mr_control_subtitle = 2131493028;
+			
+			// aapt resource value: 0x7f0c00a3
+			public const int mr_control_title = 2131493027;
+			
+			// aapt resource value: 0x7f0c00a2
+			public const int mr_control_title_container = 2131493026;
+			
+			// aapt resource value: 0x7f0c0096
+			public const int mr_custom_control = 2131493014;
+			
+			// aapt resource value: 0x7f0c0097
+			public const int mr_default_control = 2131493015;
+			
+			// aapt resource value: 0x7f0c0092
+			public const int mr_dialog_area = 2131493010;
+			
+			// aapt resource value: 0x7f0c0091
+			public const int mr_expandable_area = 2131493009;
+			
+			// aapt resource value: 0x7f0c00a5
+			public const int mr_group_expand_collapse = 2131493029;
+			
+			// aapt resource value: 0x7f0c0099
+			public const int mr_media_main_control = 2131493017;
+			
+			// aapt resource value: 0x7f0c0094
+			public const int mr_name = 2131493012;
+			
+			// aapt resource value: 0x7f0c009a
+			public const int mr_playback_control = 2131493018;
+			
+			// aapt resource value: 0x7f0c0093
+			public const int mr_title_bar = 2131493011;
 			
 			// aapt resource value: 0x7f0c009c
-			public const int mr_volume_group_list = 2131493020;
+			public const int mr_volume_control = 2131493020;
 			
-			// aapt resource value: 0x7f0c009e
-			public const int mr_volume_item_icon = 2131493022;
+			// aapt resource value: 0x7f0c009d
+			public const int mr_volume_group_list = 2131493021;
 			
 			// aapt resource value: 0x7f0c009f
-			public const int mr_volume_slider = 2131493023;
+			public const int mr_volume_item_icon = 2131493023;
+			
+			// aapt resource value: 0x7f0c00a0
+			public const int mr_volume_slider = 2131493024;
 			
 			// aapt resource value: 0x7f0c0024
 			public const int multiply = 2131492900;
@@ -3313,14 +3319,14 @@ namespace GeoGames.Droid
 			// aapt resource value: 0x7f0c0011
 			public const int normal = 2131492881;
 			
-			// aapt resource value: 0x7f0c00b4
-			public const int notification_background = 2131493044;
+			// aapt resource value: 0x7f0c00b5
+			public const int notification_background = 2131493045;
+			
+			// aapt resource value: 0x7f0c00af
+			public const int notification_main_column = 2131493039;
 			
 			// aapt resource value: 0x7f0c00ae
-			public const int notification_main_column = 2131493038;
-			
-			// aapt resource value: 0x7f0c00ad
-			public const int notification_main_column_container = 2131493037;
+			public const int notification_main_column_container = 2131493038;
 			
 			// aapt resource value: 0x7f0c0041
 			public const int parallax = 2131492929;
@@ -3343,11 +3349,11 @@ namespace GeoGames.Droid
 			// aapt resource value: 0x7f0c003f
 			public const int right = 2131492927;
 			
-			// aapt resource value: 0x7f0c00b3
-			public const int right_icon = 2131493043;
+			// aapt resource value: 0x7f0c00b4
+			public const int right_icon = 2131493044;
 			
-			// aapt resource value: 0x7f0c00af
-			public const int right_side = 2131493039;
+			// aapt resource value: 0x7f0c00b0
+			public const int right_side = 2131493040;
 			
 			// aapt resource value: 0x7f0c0012
 			public const int satellite = 2131492882;
@@ -3415,8 +3421,8 @@ namespace GeoGames.Droid
 			// aapt resource value: 0x7f0c0022
 			public const int showTitle = 2131492898;
 			
-			// aapt resource value: 0x7f0c00bc
-			public const int sliding_tabs = 2131493052;
+			// aapt resource value: 0x7f0c00bd
+			public const int sliding_tabs = 2131493053;
 			
 			// aapt resource value: 0x7f0c007d
 			public const int smallLabel = 2131492989;
@@ -3451,8 +3457,8 @@ namespace GeoGames.Droid
 			// aapt resource value: 0x7f0c0040
 			public const int start = 2131492928;
 			
-			// aapt resource value: 0x7f0c00aa
-			public const int status_bar_latest_event_content = 2131493034;
+			// aapt resource value: 0x7f0c00ab
+			public const int status_bar_latest_event_content = 2131493035;
 			
 			// aapt resource value: 0x7f0c0068
 			public const int submenuarrow = 2131492968;
@@ -3466,11 +3472,11 @@ namespace GeoGames.Droid
 			// aapt resource value: 0x7f0c0013
 			public const int terrain = 2131492883;
 			
-			// aapt resource value: 0x7f0c00ba
-			public const int text = 2131493050;
+			// aapt resource value: 0x7f0c00bb
+			public const int text = 2131493051;
 			
-			// aapt resource value: 0x7f0c00b8
-			public const int text2 = 2131493048;
+			// aapt resource value: 0x7f0c00b9
+			public const int text2 = 2131493049;
 			
 			// aapt resource value: 0x7f0c005c
 			public const int textSpacerNoButtons = 2131492956;
@@ -3487,8 +3493,8 @@ namespace GeoGames.Droid
 			// aapt resource value: 0x7f0c000d
 			public const int textinput_error = 2131492877;
 			
-			// aapt resource value: 0x7f0c00b0
-			public const int time = 2131493040;
+			// aapt resource value: 0x7f0c00b1
+			public const int time = 2131493041;
 			
 			// aapt resource value: 0x7f0c0054
 			public const int title = 2131492948;
@@ -3499,8 +3505,8 @@ namespace GeoGames.Droid
 			// aapt resource value: 0x7f0c0061
 			public const int title_template = 2131492961;
 			
-			// aapt resource value: 0x7f0c00bd
-			public const int toolbar = 2131493053;
+			// aapt resource value: 0x7f0c00be
+			public const int toolbar = 2131493054;
 			
 			// aapt resource value: 0x7f0c0034
 			public const int top = 2131492916;
@@ -3526,11 +3532,11 @@ namespace GeoGames.Droid
 			// aapt resource value: 0x7f0c000e
 			public const int view_offset_helper = 2131492878;
 			
-			// aapt resource value: 0x7f0c00be
-			public const int visible = 2131493054;
+			// aapt resource value: 0x7f0c00bf
+			public const int visible = 2131493055;
 			
-			// aapt resource value: 0x7f0c009d
-			public const int volume_item_container = 2131493021;
+			// aapt resource value: 0x7f0c009e
+			public const int volume_item_container = 2131493022;
 			
 			// aapt resource value: 0x7f0c0018
 			public const int wide = 2131492888;
@@ -3749,85 +3755,88 @@ namespace GeoGames.Droid
 			public const int design_text_input_password_icon = 2130968616;
 			
 			// aapt resource value: 0x7f040029
-			public const int mr_chooser_dialog = 2130968617;
+			public const int MapInfoWindow = 2130968617;
 			
 			// aapt resource value: 0x7f04002a
-			public const int mr_chooser_list_item = 2130968618;
+			public const int mr_chooser_dialog = 2130968618;
 			
 			// aapt resource value: 0x7f04002b
-			public const int mr_controller_material_dialog_b = 2130968619;
+			public const int mr_chooser_list_item = 2130968619;
 			
 			// aapt resource value: 0x7f04002c
-			public const int mr_controller_volume_item = 2130968620;
+			public const int mr_controller_material_dialog_b = 2130968620;
 			
 			// aapt resource value: 0x7f04002d
-			public const int mr_playback_control = 2130968621;
+			public const int mr_controller_volume_item = 2130968621;
 			
 			// aapt resource value: 0x7f04002e
-			public const int mr_volume_control = 2130968622;
+			public const int mr_playback_control = 2130968622;
 			
 			// aapt resource value: 0x7f04002f
-			public const int notification_action = 2130968623;
+			public const int mr_volume_control = 2130968623;
 			
 			// aapt resource value: 0x7f040030
-			public const int notification_action_tombstone = 2130968624;
+			public const int notification_action = 2130968624;
 			
 			// aapt resource value: 0x7f040031
-			public const int notification_media_action = 2130968625;
+			public const int notification_action_tombstone = 2130968625;
 			
 			// aapt resource value: 0x7f040032
-			public const int notification_media_cancel_action = 2130968626;
+			public const int notification_media_action = 2130968626;
 			
 			// aapt resource value: 0x7f040033
-			public const int notification_template_big_media = 2130968627;
+			public const int notification_media_cancel_action = 2130968627;
 			
 			// aapt resource value: 0x7f040034
-			public const int notification_template_big_media_custom = 2130968628;
+			public const int notification_template_big_media = 2130968628;
 			
 			// aapt resource value: 0x7f040035
-			public const int notification_template_big_media_narrow = 2130968629;
+			public const int notification_template_big_media_custom = 2130968629;
 			
 			// aapt resource value: 0x7f040036
-			public const int notification_template_big_media_narrow_custom = 2130968630;
+			public const int notification_template_big_media_narrow = 2130968630;
 			
 			// aapt resource value: 0x7f040037
-			public const int notification_template_custom_big = 2130968631;
+			public const int notification_template_big_media_narrow_custom = 2130968631;
 			
 			// aapt resource value: 0x7f040038
-			public const int notification_template_icon_group = 2130968632;
+			public const int notification_template_custom_big = 2130968632;
 			
 			// aapt resource value: 0x7f040039
-			public const int notification_template_lines_media = 2130968633;
+			public const int notification_template_icon_group = 2130968633;
 			
 			// aapt resource value: 0x7f04003a
-			public const int notification_template_media = 2130968634;
+			public const int notification_template_lines_media = 2130968634;
 			
 			// aapt resource value: 0x7f04003b
-			public const int notification_template_media_custom = 2130968635;
+			public const int notification_template_media = 2130968635;
 			
 			// aapt resource value: 0x7f04003c
-			public const int notification_template_part_chronometer = 2130968636;
+			public const int notification_template_media_custom = 2130968636;
 			
 			// aapt resource value: 0x7f04003d
-			public const int notification_template_part_time = 2130968637;
+			public const int notification_template_part_chronometer = 2130968637;
 			
 			// aapt resource value: 0x7f04003e
-			public const int select_dialog_item_material = 2130968638;
+			public const int notification_template_part_time = 2130968638;
 			
 			// aapt resource value: 0x7f04003f
-			public const int select_dialog_multichoice_material = 2130968639;
+			public const int select_dialog_item_material = 2130968639;
 			
 			// aapt resource value: 0x7f040040
-			public const int select_dialog_singlechoice_material = 2130968640;
+			public const int select_dialog_multichoice_material = 2130968640;
 			
 			// aapt resource value: 0x7f040041
-			public const int support_simple_spinner_dropdown_item = 2130968641;
+			public const int select_dialog_singlechoice_material = 2130968641;
 			
 			// aapt resource value: 0x7f040042
-			public const int Tabbar = 2130968642;
+			public const int support_simple_spinner_dropdown_item = 2130968642;
 			
 			// aapt resource value: 0x7f040043
-			public const int Toolbar = 2130968643;
+			public const int Tabbar = 2130968643;
+			
+			// aapt resource value: 0x7f040044
+			public const int Toolbar = 2130968644;
 			
 			static Layout()
 			{
