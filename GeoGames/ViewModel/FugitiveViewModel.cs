@@ -72,7 +72,9 @@ namespace GeoGames.ViewModel
         public string FugitiveName
         {
 			get { return _fugitiveName; }
-			set { _fugitiveName = value; OnPropertyChanged("FugitiveName"); }
+			set { _fugitiveName = value;
+                UsernameSet = !string.IsNullOrEmpty(value);
+                OnPropertyChanged("FugitiveName"); }
         }
 
         public DateTime StartTime { get; set; }
@@ -89,6 +91,18 @@ namespace GeoGames.ViewModel
         public string GameId {
             get { return _gameId; }
             set { _gameId = value; OnPropertyChanged("GameId"); }
+        }
+
+        private bool _isCaught;
+        public bool IsCaught{
+            get { return _isCaught; }
+            set { _isCaught = value; OnPropertyChanged("IsCaught"); }
+        }
+
+        private bool _usernameSet;
+        public bool UsernameSet {
+            get { return _usernameSet ; }
+            set { _usernameSet = value; OnPropertyChanged("UsernameSet"); }
         }
     }
 }

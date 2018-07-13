@@ -136,16 +136,15 @@ namespace GeoGames
         {
 			await StopListeningForLocation();
             // guard against multiple caughts 
-            if (!isCaught)
+            if (!ViewModelLocator.FugitiveViewModel.IsCaught)
             {
-                isCaught = true;
+                ViewModelLocator.FugitiveViewModel.IsCaught = true;
                 ViewModelLocator.FugitiveViewModel.AliveFor = DateTime.Now - ViewModelLocator.FugitiveViewModel.StartTime;
                 await Navigation.PushModalAsync(new CaughtPage());
                 SendBackButtonPressed();
             }
         }
 
-        bool isCaught;
 
         void Join_Clicked(object sender, EventArgs eventArgs)
         {

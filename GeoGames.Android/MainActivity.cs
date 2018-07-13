@@ -69,7 +69,7 @@ namespace GeoGames.Droid
             if (item.ItemId == 16908332)
             {
                 // retrieve the current xamarin forms page instance
-                var currentpage = (CustomBackActionPage) Xamarin.Forms.Application.Current.MainPage.Navigation.NavigationStack.LastOrDefault();
+                var currentpage = Xamarin.Forms.Application.Current.MainPage.Navigation.NavigationStack.LastOrDefault() as CustomBackActionPage;
 
                 // check if the page has subscribed to 
                 // the custom back button event
@@ -101,7 +101,7 @@ namespace GeoGames.Droid
             // to cover the both events
 
             // retrieve the current xamarin forms page instance
-            var currentpage = (CustomBackActionPage)Xamarin.Forms.Application.Current.MainPage.Navigation.NavigationStack.LastOrDefault();
+            var currentpage = Xamarin.Forms.Application.Current.MainPage.Navigation.NavigationStack.LastOrDefault() as CustomBackActionPage;
 
 
             // check if the page has subscribed to 

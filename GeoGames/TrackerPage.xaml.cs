@@ -19,16 +19,19 @@ namespace GeoGames
             InitializeComponent();
 			BindingContext = ViewModelLocator.TrackerViewModel;
         }
-            
-		protected override async void OnAppearing()
-		{
-			base.OnAppearing();
-         
-			var position = await CrossGeolocator.Current.GetLastKnownLocationAsync();
-			ViewModelLocator.TrackerViewModel.Position = position;
-			await StartListeningToLocation();
-			MyMap.MoveToRegion(MapSpan.FromCenterAndRadius(new Xamarin.Forms.Maps.Position(position.Latitude, position.Longitude), Distance.FromMiles(0.1)));
-		}
+
+        protected override async void OnAppearing()
+        {
+            base.OnAppearing();
+
+            var position = await CrossGeolocator.Current.GetLastKnownLocationAsync();
+            ViewModelLocator.TrackerViewModel.Position = position;
+            await StartListeningToLocation();
+            if (position != null)
+            {
+                MyMap.MoveToRegion(MapSpan.FromCenterAndRadius(new Xamarin.Forms.Maps.Position(position.Latitude, position.Longitude), Distance.FromMiles(0.1)));
+            }
+        }
 
         protected override async void OnDisappearing()
         {

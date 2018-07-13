@@ -13,7 +13,7 @@
     </ContentPage.Resources>
     <ContentPage.Content>
         <StackLayout Margin="5">
-            <Label Text="Fugitives are shown below" />
+            <Label Text="Catch the fugitives by getting within 5m of them!"  FontSize="24"/>
             <localMaps:BindableMap WidthRequest="320" HeightRequest="200"
                 x:Name="MyMap"
                 IsShowingUser="true"
@@ -21,7 +21,7 @@
                 HasZoomEnabled="true" Margin="5"
                 MapPins="{Binding PinCollection}"
             />
-            <Label Text="Everyone Caught! well done" HorizontalTextAlignment="Center"  IsVisible="{Binding IsComplete}"/>
+            <Label Text="Everyone Caught! well done" TextColor="Red" FontSize="24" HorizontalTextAlignment="Center"  IsVisible="{Binding IsComplete}"/>
          </StackLayout>
     </ContentPage.Content>
 </ContentPage>

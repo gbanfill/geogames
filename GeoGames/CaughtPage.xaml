@@ -10,10 +10,10 @@
     </ContentPage.Resources>
     <ContentPage.Content>
         <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
-            <Label Text="You've been Caught" HorizontalTextAlignment="Center" />
-            <Label Text="You lasted:" HorizontalTextAlignment="Center"/>
-            <Label Text="{Binding AliveForSeconds, Converter={StaticResource DoubleNullConvertor}, ConverterParameter='0.0s'}" HorizontalTextAlignment="Center"/>
-            <Button Text="Dismiss" Clicked="Dismiss_Clicked" />
+            <Label Text="You've been Caught" HorizontalTextAlignment="Center" FontSize="20" TextColor="Red" />
+            <Label Text="You lasted:" HorizontalTextAlignment="Center" FontSize="20"/>
+            <Label Text="{Binding AliveForSeconds, Converter={StaticResource DoubleNullConvertor}, ConverterParameter='0.0s'}" HorizontalTextAlignment="Center" FontSize="28" TextColor="Red"/>
+            <Button Text="Dismiss" Clicked="Dismiss_Clicked"  FontSize="20"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

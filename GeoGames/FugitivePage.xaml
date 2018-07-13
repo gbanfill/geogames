@@ -40,8 +40,9 @@
                           RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,
                              Property=Width,
                              Factor=1,
-                             Constant=0}">
-                 <Label Text="{Binding GameId}" HorizontalOptions="Center"/>
+                             Constant=0}" Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+                 <Label Text="GameId:" HorizontalOptions="Center"/> <Label Text="{Binding GameId}" HorizontalOptions="Center"/>
+                <Label Text="UserID:" IsVisible="{Binding UsernameSet}" HorizontalOptions="Center"/> <Label Text="{Binding FugitiveName}" IsVisible="{Binding UsernameSet}" HorizontalOptions="Center"/>
            </StackLayout>
             <StackLayout 
                         RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent,
