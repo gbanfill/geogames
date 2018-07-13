@@ -24,7 +24,7 @@ namespace GeoGames
                     _messaging.SendSurrender(new SurrenderMessage());
                 }
                 _messaging.Disconnect();
-
+                ViewModelLocator.FugitiveViewModel.WaitingForGameToStart = false;
                 await Navigation.PopAsync(true);
             };
         }
@@ -159,6 +159,7 @@ namespace GeoGames
 
         async void Surrender_Clicked(object sender, EventArgs eventArgs)
         {
+            ViewModelLocator.FugitiveViewModel.WaitingForGameToStart = false;
 			ViewModelLocator.FugitiveViewModel.JoinEnabled = true;
 			ViewModelLocator.FugitiveViewModel.SurrenderEnabled = false;
             ViewModelLocator.FugitiveViewModel.GameInProgress = false;

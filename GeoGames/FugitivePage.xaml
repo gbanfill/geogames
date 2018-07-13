@@ -67,6 +67,7 @@
                    
                   <StackLayout IsVisible="{Binding WaitingForGameToStart}" Padding="15">
                     <Label Text="Waiting for game to start..."  Style="{StaticResource LabelStyle}"/>
+                    <Button Text="Surrender" Clicked="Surrender_Clicked" FontSize="24" />
                </StackLayout>
                 <StackLayout IsVisible="{Binding GameInProgress}">
                     <Label Text="You are being tracked"  Style="{StaticResource LabelStyle}"/>
@@ -84,6 +85,7 @@
                         <Entry Text="{Binding FugitiveName}" IsEnabled="{Binding JoinEnabled}" WidthRequest="200" VerticalOptions="Center" FontSize="24"/>
                     </StackLayout>
                     <Button x:Name="join" Text="Join" Clicked="Join_Clicked" IsEnabled="{Binding JoinEnabled}" FontSize="24"/>
+                    <BoxView Color="Transparent" WidthRequest="100" HeightRequest="100" />
                 </StackLayout>
 
             </StackLayout>
