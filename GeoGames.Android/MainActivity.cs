@@ -15,7 +15,7 @@ using System.Linq;
 
 namespace GeoGames.Droid
 {
-    [Activity(Label = "GeoGames", Icon = "@mipmap/icon", Theme = "@style/MainTheme", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
+    [Activity(Label = "Fugitive", Icon = "@mipmap/icon", Theme = "@style/MainTheme", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
     [IntentFilter(new[] { Android.Content.Intent.ActionView },
                   Categories = new[] { Android.Content.Intent.CategoryBrowsable, Android.Content.Intent.CategoryDefault },
                   DataScheme = DeepLinkingConstants.DataScheme,
