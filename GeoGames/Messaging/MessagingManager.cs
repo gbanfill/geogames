@@ -302,6 +302,8 @@ namespace GeoGames.Messaging
             return true;
         }
 
+        public bool IsConnectedToChannel { get { return client.IsConnected && client.IsSubscribed(Channel); }}
+
         public delegate void SurrenderEventHandler(object sender, MessageEventArgs<SurrenderMessage> e);
 
         public event SurrenderEventHandler SurrenderRecieved;

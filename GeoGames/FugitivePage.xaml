@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ContentPage 
+<local:CustomBackActionPage 
     xmlns="http://xamarin.com/schemas/2014/forms" 
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
     xmlns:convertors="clr-namespace:GeoGames.Convertors" 
+    xmlns:local="clr-namespace:GeoGames"
     x:Class="GeoGames.FugitivePage"
     Title="Fugitive">
     <ContentPage.Resources>
@@ -73,15 +74,15 @@
                     <Label Text="Tracker will reach you in approx"  Style="{StaticResource TextStyle}"/>
                     <Label Text="{Binding Time, Converter={StaticResource DoubleNullConvertor}, ConverterParameter='0.0s'}" x:Name="time" Style="{StaticResource LabelStyle}"/>
                     
-                    <Button x:Name="surrender" Text="Surrender" Clicked="Surrender_Clicked" IsEnabled="{Binding SurrenderEnabled}" />
+                    <Button x:Name="surrender" Text="Surrender" Clicked="Surrender_Clicked" IsEnabled="{Binding SurrenderEnabled}" FontSize="24" />
                 </StackLayout>
                 
                 <StackLayout IsVisible="{Binding JoinEnabled}">
                     <StackLayout Orientation="Horizontal" VerticalOptions="CenterAndExpand">
-                        <Label Text="Username" IsEnabled="{Binding JoinEnabled}" VerticalOptions="Center"/>
-                        <Entry Text="{Binding FugitiveName}" IsEnabled="{Binding JoinEnabled}" WidthRequest="200" VerticalOptions="Center" />
+                        <Label Text="Username" IsEnabled="{Binding JoinEnabled}" VerticalOptions="Center" FontSize="24"/>
+                        <Entry Text="{Binding FugitiveName}" IsEnabled="{Binding JoinEnabled}" WidthRequest="200" VerticalOptions="Center" FontSize="24"/>
                     </StackLayout>
-                    <Button x:Name="join" Text="Join" Clicked="Join_Clicked" IsEnabled="{Binding JoinEnabled}" />
+                    <Button x:Name="join" Text="Join" Clicked="Join_Clicked" IsEnabled="{Binding JoinEnabled}" FontSize="24"/>
                 </StackLayout>
 
             </StackLayout>
@@ -103,4 +104,4 @@
     </ContentPage.Content>
 
 
-</ContentPage>
+</local:CustomBackActionPage>

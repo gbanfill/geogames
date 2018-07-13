@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+<local:CustomBackActionPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+              xmlns:local="clr-namespace:GeoGames"
              x:Class="GeoGames.InviteFugitivesPage"
              xmlns:localConvertors="GeoGames.Convertors"
              Title="Invite Fugitives">
@@ -24,4 +25,4 @@
             <Button Text="Start" Clicked="StartGame_Clicked" IsEnabled="{Binding CanStartGame}" FontSize="24"/>
         </StackLayout>
     </ContentPage.Content>
-</ContentPage>
+</local:CustomBackActionPage>

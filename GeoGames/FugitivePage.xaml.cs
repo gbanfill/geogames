@@ -9,13 +9,26 @@ using Xamarin.Forms;
 
 namespace GeoGames
 {
-    public partial class FugitivePage : ContentPage
+    public partial class FugitivePage : CustomBackActionPage
     {
         public FugitivePage()
         {
             InitializeComponent();
 			BindingContext = ViewModelLocator.FugitiveViewModel;
+
+            // custom back action will be called when Backbutton pressed (android) or back navigation button at top of page pressed (iOS and android)
+            this.CustomBackButtonAction = async () =>
+            {
+                if (_messaging.IsConnectedToChannel)
+                {
+                    _messaging.SendSurrender(new SurrenderMessage());
+                }
+                _messaging.Disconnect();
+
+                await Navigation.PopAsync(true);
+            };
         }
+
 
         MessagingManager _messaging = new MessagingManager("conecting");
 
@@ -27,11 +40,11 @@ namespace GeoGames
             _messaging.Connected += _messaging_Connected;		
 			_messaging.CaughtRecieved += _messaging_CaughtRecieved;
 
+
 		}
 		protected override async void OnDisappearing()
 		{
 			base.OnDisappearing();
-
            
             _messaging.FugutiveDistanceRecieved -= _messaging_FugutiveDistanceRecieved;
 			_messaging.GameStartsAtRecieved -= _messaging_GameStartsAtRecieved;
@@ -39,12 +52,7 @@ namespace GeoGames
 			await StopListeningForLocation();
 		}
 
-        protected override bool OnBackButtonPressed()
-        {
-            _messaging.SendSurrender(new SurrenderMessage());
-            _messaging.Disconnect();
-            return base.OnBackButtonPressed();
-        }
+       
         void _messaging_Connected(object sender, EventArgs eventArgs)
         {
 			ViewModelLocator.FugitiveViewModel.JoinEnabled = true;         
